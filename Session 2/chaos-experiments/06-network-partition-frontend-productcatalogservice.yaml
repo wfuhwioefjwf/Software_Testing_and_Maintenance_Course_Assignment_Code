@@ -1,0 +1,27 @@
+apiVersion: chaos-mesh.org/v1alpha1
+kind: NetworkChaos
+metadata:
+  name: network-partition-frontend-productcatalogservice
+  namespace: default
+  labels:
+    experiment: chaos-report
+    target: frontend-productcatalogservice
+    fault-type: network-partition
+spec:
+  action: partition
+  mode: all
+  duration: 2m
+  selector:
+    namespaces:
+      - default
+    labelSelectors:
+      app: frontend
+  direction: both
+  target:
+    mode: all
+    selector:
+      namespaces:
+        - default
+      labelSelectors:
+        app: productcatalogservice
+

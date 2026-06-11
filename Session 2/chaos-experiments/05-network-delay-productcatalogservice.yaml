@@ -1,0 +1,23 @@
+apiVersion: chaos-mesh.org/v1alpha1
+kind: NetworkChaos
+metadata:
+  name: network-delay-productcatalogservice
+  namespace: default
+  labels:
+    experiment: chaos-report
+    target: productcatalogservice
+    fault-type: network-delay
+spec:
+  action: delay
+  mode: all
+  duration: 3m
+  selector:
+    namespaces:
+      - default
+    labelSelectors:
+      app: productcatalogservice
+  delay:
+    latency: 500ms
+    jitter: 100ms
+    correlation: "25"
+

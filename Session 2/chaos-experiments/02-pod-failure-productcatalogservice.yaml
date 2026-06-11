@@ -1,0 +1,19 @@
+apiVersion: chaos-mesh.org/v1alpha1
+kind: PodChaos
+metadata:
+  name: pod-failure-productcatalogservice
+  namespace: default
+  labels:
+    experiment: chaos-report
+    target: productcatalogservice
+    fault-type: pod-failure
+spec:
+  action: pod-failure
+  mode: one
+  duration: 2m
+  selector:
+    namespaces:
+      - default
+    labelSelectors:
+      app: productcatalogservice
+

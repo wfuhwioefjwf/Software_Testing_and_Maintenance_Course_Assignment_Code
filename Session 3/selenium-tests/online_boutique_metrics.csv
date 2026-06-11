@@ -1,0 +1,15 @@
+system,browser,test_step,status,duration_seconds,remark,timestamp
+Online Boutique,edge,homepage_load,pass,0.646,average of 5/5 runs; pass=5; fail=0,2026-06-12T03:41:15
+Online Boutique,edge,product_detail,pass,0.155,average of 5/5 runs; pass=5; fail=0,2026-06-12T03:41:15
+Online Boutique,edge,add_to_cart,pass,0.204,average of 5/5 runs; pass=5; fail=0,2026-06-12T03:41:15
+Online Boutique,edge,cart_check,pass,0.044,average of 5/5 runs; pass=5; fail=0,2026-06-12T03:41:15
+Online Boutique,edge,checkout_form_fill,pass,0.627,average of 5/5 runs; pass=5; fail=0,2026-06-12T03:41:15
+Online Boutique,edge,checkout_submit,pass,0.326,average of 5/5 runs; pass=5; fail=0,2026-06-12T03:41:15
+Online Boutique,edge,continue_shopping,pass,0.127,average of 5/5 runs; pass=5; fail=0,2026-06-12T03:41:15
+Online Boutique,chrome,homepage_load,pass,0.631,average of 5/5 runs; pass=5; fail=0,2026-06-12T03:42:41
+Online Boutique,chrome,product_detail,pass,0.144,average of 5/5 runs; pass=5; fail=0,2026-06-12T03:42:41
+Online Boutique,chrome,add_to_cart,pass,0.075,average of 5/5 runs; pass=5; fail=0,2026-06-12T03:42:41
+Online Boutique,chrome,cart_check,pass,0.223,average of 5/5 runs; pass=5; fail=0,2026-06-12T03:42:41
+Online Boutique,chrome,checkout_form_fill,pass,0.531,average of 5/5 runs; pass=5; fail=0,2026-06-12T03:42:41
+Online Boutique,chrome,checkout_submit,pass,0.112,average of 5/5 runs; pass=5; fail=0,2026-06-12T03:42:41
+Online Boutique,chrome,continue_shopping,pass,0.095,average of 5/5 runs; pass=5; fail=0,2026-06-12T03:42:41

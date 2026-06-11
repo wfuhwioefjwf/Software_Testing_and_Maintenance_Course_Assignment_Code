@@ -1,0 +1,22 @@
+apiVersion: chaos-mesh.org/v1alpha1
+kind: StressChaos
+metadata:
+  name: stress-cpu-checkoutservice
+  namespace: default
+  labels:
+    experiment: chaos-report
+    target: checkoutservice
+    fault-type: stress-cpu
+spec:
+  mode: one
+  duration: 3m
+  selector:
+    namespaces:
+      - default
+    labelSelectors:
+      app: checkoutservice
+  stressors:
+    cpu:
+      workers: 1
+      load: 35
+

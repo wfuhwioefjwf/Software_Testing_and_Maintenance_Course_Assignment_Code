@@ -1,0 +1,19 @@
+apiVersion: chaos-mesh.org/v1alpha1
+kind: PodChaos
+metadata:
+  name: pod-kill-frontend
+  namespace: default
+  labels:
+    experiment: chaos-report
+    target: frontend
+    fault-type: pod-kill
+spec:
+  action: pod-kill
+  mode: one
+  gracePeriod: 0
+  selector:
+    namespaces:
+      - default
+    labelSelectors:
+      app: frontend
+
