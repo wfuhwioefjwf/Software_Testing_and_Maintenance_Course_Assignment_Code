@@ -1,0 +1,39 @@
+{
+  "dataset_name": "online_boutique",
+  "train_csv": "online_boutique_data\\prom_train_20260612_053834\\wide_train.csv",
+  "test_csv": "online_boutique_data\\prom_test_from_kill_20260612_173018\\wide_test.csv",
+  "train_shape": [
+    481,
+    16
+  ],
+  "test_shape": [
+    281,
+    16
+  ],
+  "test_label_shape": [
+    281
+  ],
+  "feature_dim": 16,
+  "feature_cols": [
+    "frontend_cpu",
+    "frontend_memory",
+    "productcatalogservice_cpu",
+    "productcatalogservice_memory",
+    "cartservice_cpu",
+    "cartservice_memory",
+    "checkoutservice_cpu",
+    "checkoutservice_memory",
+    "redis_cart_cpu",
+    "redis_cart_memory",
+    "paymentservice_cpu",
+    "paymentservice_memory",
+    "currencyservice_cpu",
+    "currencyservice_memory",
+    "shippingservice_cpu",
+    "shippingservice_memory"
+  ],
+  "test_label_counts": {
+    "0": 220,
+    "1": 61
+  }
+}

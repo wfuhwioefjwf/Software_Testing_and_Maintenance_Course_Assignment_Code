@@ -1,0 +1,1 @@
+{"test_nll":22417.142578125,"test_lb":-28166.783203125,"test_recons":-28024.189453125,"test_kl":142.592529296875,"test_ll":-22417.142578125,"normal_point_test_recons":-149.4683380126953,"best-f1":0.0,"precision":0.0,"recall":0.0,"TP":0,"TN":23,"FP":1,"FN":0,"threshold":-191.60614013671875,"auroc":"nan","ap":"nan"}

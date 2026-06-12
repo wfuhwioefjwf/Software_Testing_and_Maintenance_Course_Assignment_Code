@@ -1,0 +1,2 @@
+NAMESPACE         NAME                     ACTION   DURATION
+online-boutique   frontend-network-delay   delay    5m

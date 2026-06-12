@@ -1,0 +1,278 @@
+{
+  "created_at": "2026-06-12 03:43:41",
+  "project_dir": "E:\\0AI\\Online-Boutique",
+  "backup_dir": "E:\\0AI\\Online-Boutique\\allBackUp\\backup_20260612_034339",
+  "file_count": 45,
+  "files": [
+    {
+      "source": "E:\\0AI\\Online-Boutique\\python\\backup_online_boutique_experiment.py",
+      "backup_path": "E:\\0AI\\Online-Boutique\\allBackUp\\backup_20260612_034339\\python\\backup_online_boutique_experiment.py",
+      "size_bytes": 9304,
+      "sha256": "6cd943b2fdeb7a92b0f44dbc36601d34b343c10984cf30ad3f732e73033d57f7"
+    },
+    {
+      "source": "E:\\0AI\\Online-Boutique\\python\\make_sr_cnn_dataset.py",
+      "backup_path": "E:\\0AI\\Online-Boutique\\allBackUp\\backup_20260612_034339\\python\\make_sr_cnn_dataset.py",
+      "size_bytes": 13717,
+      "sha256": "36def9ea6e0a1b465d0315e2189b0e74743208b7c417a66b39911499985550a4"
+    },
+    {
+      "source": "E:\\0AI\\Online-Boutique\\python\\sr_decetion.py",
+      "backup_path": "E:\\0AI\\Online-Boutique\\allBackUp\\backup_20260612_034339\\python\\sr_decetion.py",
+      "size_bytes": 13878,
+      "sha256": "6f9ba311004d9b8e3fbc23c8b4b7b7a08a14c9e0697bbb5c93996979c17c22c1"
+    },
+    {
+      "source": "E:\\0AI\\Online-Boutique\\python\\train_sr_cnn.py",
+      "backup_path": "E:\\0AI\\Online-Boutique\\allBackUp\\backup_20260612_034339\\python\\train_sr_cnn.py",
+      "size_bytes": 12752,
+      "sha256": "fc69d7a12049b384ad4dde6b4778b1fa9f1d4d9a28bc63130f6392f4ed6dc240"
+    },
+    {
+      "source": "E:\\0AI\\Online-Boutique\\chaos-yamls\\fault_windows.csv",
+      "backup_path": "E:\\0AI\\Online-Boutique\\allBackUp\\backup_20260612_034339\\chaos-yamls\\fault_windows.csv",
+      "size_bytes": 1236,
+      "sha256": "ff4a315283c8c5baeb3aed2154c66d29cff864ec5715f7f1b02123e45238fd02"
+    },
+    {
+      "source": "E:\\0AI\\Online-Boutique\\chaos-yamls\\frontend-cpu-stress.yaml",
+      "backup_path": "E:\\0AI\\Online-Boutique\\allBackUp\\backup_20260612_034339\\chaos-yamls\\frontend-cpu-stress.yaml",
+      "size_bytes": 317,
+      "sha256": "71d6f0324ef2931cc010ae1c27923f2857ddb40a8e25b525ba71f6cfde07bfdd"
+    },
+    {
+      "source": "E:\\0AI\\Online-Boutique\\chaos-yamls\\frontend-network-delay.yaml",
+      "backup_path": "E:\\0AI\\Online-Boutique\\allBackUp\\backup_20260612_034339\\chaos-yamls\\frontend-network-delay.yaml",
+      "size_bytes": 355,
+      "sha256": "2617b98a37aeb8ab462d91b36bd12a36496ddc8f33a884eba65d0f90d32d75f3"
+    },
+    {
+      "source": "E:\\0AI\\Online-Boutique\\chaos-yamls\\frontend-random-cpu-stress.yaml",
+      "backup_path": "E:\\0AI\\Online-Boutique\\allBackUp\\backup_20260612_034339\\chaos-yamls\\frontend-random-cpu-stress.yaml",
+      "size_bytes": 309,
+      "sha256": "b7b86d98c20a47ae8464fea10cb65f92574b0924e390d1775b563f4d945f4374"
+    },
+    {
+      "source": "E:\\0AI\\Online-Boutique\\chaos-yamls\\run-random-cpu-stress-fixed.ps1",
+      "backup_path": "E:\\0AI\\Online-Boutique\\allBackUp\\backup_20260612_034339\\chaos-yamls\\run-random-cpu-stress-fixed.ps1",
+      "size_bytes": 4511,
+      "sha256": "f5d28289aaccfa9a50930e46d14dd9b301d94874715d0257c214b82f2b0c96c5"
+    },
+    {
+      "source": "E:\\0AI\\Online-Boutique\\chaos-yamls\\run-random-cpu-stress-simple.ps1",
+      "backup_path": "E:\\0AI\\Online-Boutique\\allBackUp\\backup_20260612_034339\\chaos-yamls\\run-random-cpu-stress-simple.ps1",
+      "size_bytes": 3013,
+      "sha256": "84e6efbb5ff59f8d48b41de4d03a1325f1f3419d56c7a155e12c0a7654db8f7d"
+    },
+    {
+      "source": "E:\\0AI\\Online-Boutique\\chaos-yamls\\run-random-cpu-stress.ps1",
+      "backup_path": "E:\\0AI\\Online-Boutique\\allBackUp\\backup_20260612_034339\\chaos-yamls\\run-random-cpu-stress.ps1",
+      "size_bytes": 4367,
+      "sha256": "9c14305ceeb744e1182ced210163086adb8689448ce3579cc2b15499824a9696"
+    },
+    {
+      "source": "E:\\0AI\\Online-Boutique\\prometheus-online-boutique-pod-data\\01_frontend_pod_cpu.csv",
+      "backup_path": "E:\\0AI\\Online-Boutique\\allBackUp\\backup_20260612_034339\\prometheus-online-boutique-pod-data\\01_frontend_pod_cpu.csv",
+      "size_bytes": 47297,
+      "sha256": "11c83707ede2903a8303ee787d3fccdc70517662f0bcbb20ca237458a8516d96"
+    },
+    {
+      "source": "E:\\0AI\\Online-Boutique\\prometheus-online-boutique-pod-data\\02_all_online_boutique_pods_cpu.csv",
+      "backup_path": "E:\\0AI\\Online-Boutique\\allBackUp\\backup_20260612_034339\\prometheus-online-boutique-pod-data\\02_all_online_boutique_pods_cpu.csv",
+      "size_bytes": 604065,
+      "sha256": "b34a945c9bf337c64f628f22f4806fdf4bb8186a4d54677bb7c57913c971d2aa"
+    },
+    {
+      "source": "E:\\0AI\\Online-Boutique\\prometheus-online-boutique-pod-data\\03_frontend_pod_memory.csv",
+      "backup_path": "E:\\0AI\\Online-Boutique\\allBackUp\\backup_20260612_034339\\prometheus-online-boutique-pod-data\\03_frontend_pod_memory.csv",
+      "size_bytes": 42373,
+      "sha256": "80f1caf5948f2ca4968bf25cbdc3c3bc1e24bc3080e85407201493d96f16390b"
+    },
+    {
+      "source": "E:\\0AI\\Online-Boutique\\prometheus-online-boutique-pod-data\\04_all_online_boutique_pods_memory.csv",
+      "backup_path": "E:\\0AI\\Online-Boutique\\allBackUp\\backup_20260612_034339\\prometheus-online-boutique-pod-data\\04_all_online_boutique_pods_memory.csv",
+      "size_bytes": 540277,
+      "sha256": "a3f41b765b6ef2b5171da6092a6a667d5c6147455118876e165142d42173b81b"
+    },
+    {
+      "source": "E:\\0AI\\Online-Boutique\\prometheus-online-boutique-pod-data\\07_frontend_ready.csv",
+      "backup_path": "E:\\0AI\\Online-Boutique\\allBackUp\\backup_20260612_034339\\prometheus-online-boutique-pod-data\\07_frontend_ready.csv",
+      "size_bytes": 134244,
+      "sha256": "fab44129e5f4f64b775cdd319833d92de2e243950b5fb46e4f7e67a1c3ee34ba"
+    },
+    {
+      "source": "E:\\0AI\\Online-Boutique\\prometheus-online-boutique-pod-data\\08_all_online_boutique_ready.csv",
+      "backup_path": "E:\\0AI\\Online-Boutique\\allBackUp\\backup_20260612_034339\\prometheus-online-boutique-pod-data\\08_all_online_boutique_ready.csv",
+      "size_bytes": 1642660,
+      "sha256": "c0c150f2c31d3d2de5e6ab0f55740a60452fa83eeb2314df5c27afdfac146fd2"
+    },
+    {
+      "source": "E:\\0AI\\Online-Boutique\\prometheus-online-boutique-pod-data\\09_online_boutique_pod_restarts.csv",
+      "backup_path": "E:\\0AI\\Online-Boutique\\allBackUp\\backup_20260612_034339\\prometheus-online-boutique-pod-data\\09_online_boutique_pod_restarts.csv",
+      "size_bytes": 1762429,
+      "sha256": "8ffa53917fe2085df5d1ab897c1ee6bb6f768c09aba0062cc4dce4b37e5141de"
+    },
+    {
+      "source": "E:\\0AI\\Online-Boutique\\prometheus-online-boutique-pod-data\\10_node_cpu_total_usage.csv",
+      "backup_path": "E:\\0AI\\Online-Boutique\\allBackUp\\backup_20260612_034339\\prometheus-online-boutique-pod-data\\10_node_cpu_total_usage.csv",
+      "size_bytes": 32212,
+      "sha256": "c3bf0815b442a36b2bf40457de64be8c68e04c4cca1be9f090949323af5f6f3a"
+    },
+    {
+      "source": "E:\\0AI\\Online-Boutique\\prometheus-online-boutique-pod-data\\11_node_cpu_user_usage.csv",
+      "backup_path": "E:\\0AI\\Online-Boutique\\allBackUp\\backup_20260612_034339\\prometheus-online-boutique-pod-data\\11_node_cpu_user_usage.csv",
+      "size_bytes": 32592,
+      "sha256": "9e882930c14ce8d4e1d2b3df9ce2814e81d9f8a460074880bd6a2e23a8efd871"
+    },
+    {
+      "source": "E:\\0AI\\Online-Boutique\\prometheus-online-boutique-pod-data\\12_node_cpu_system_usage.csv",
+      "backup_path": "E:\\0AI\\Online-Boutique\\allBackUp\\backup_20260612_034339\\prometheus-online-boutique-pod-data\\12_node_cpu_system_usage.csv",
+      "size_bytes": 32659,
+      "sha256": "2da2579f1da4f7f390af9a4bad95ab4d69c2c6977965ace1b4c36914a159d2c5"
+    },
+    {
+      "source": "E:\\0AI\\Online-Boutique\\prometheus-container-data\\21_frontend_ready.csv",
+      "backup_path": "E:\\0AI\\Online-Boutique\\allBackUp\\backup_20260612_034339\\prometheus-container-data\\21_frontend_ready.csv",
+      "size_bytes": 134244,
+      "sha256": "0e590f14ef852bd04d21d9fd4e0b286d75f2c8280a3e9ca27b56dddf1328cea5"
+    },
+    {
+      "source": "E:\\0AI\\Online-Boutique\\prometheus-container-data\\22_all_pods_ready.csv",
+      "backup_path": "E:\\0AI\\Online-Boutique\\allBackUp\\backup_20260612_034339\\prometheus-container-data\\22_all_pods_ready.csv",
+      "size_bytes": 1642660,
+      "sha256": "0d536ed6da4844f4d32bfaa4dcace284c47c8e8529fe67c3c95b60632a9b0bf0"
+    },
+    {
+      "source": "E:\\0AI\\Online-Boutique\\prometheus-container-data\\23_pod_restarts.csv",
+      "backup_path": "E:\\0AI\\Online-Boutique\\allBackUp\\backup_20260612_034339\\prometheus-container-data\\23_pod_restarts.csv",
+      "size_bytes": 1762429,
+      "sha256": "f7d8c6fedf0cbf8e3cd4e602981af663f59b9c9a41e917a30865cc514e8e2c74"
+    },
+    {
+      "source": "E:\\0AI\\Online-Boutique\\prometheus-container-data\\31_node_cpu_total_usage.csv",
+      "backup_path": "E:\\0AI\\Online-Boutique\\allBackUp\\backup_20260612_034339\\prometheus-container-data\\31_node_cpu_total_usage.csv",
+      "size_bytes": 32224,
+      "sha256": "6f3bcc2fe4668fe5716328f0a5c1b23b9c16f1c5aad988d4c140ce42c7625923"
+    },
+    {
+      "source": "E:\\0AI\\Online-Boutique\\prometheus-container-data\\32_node_cpu_user_usage.csv",
+      "backup_path": "E:\\0AI\\Online-Boutique\\allBackUp\\backup_20260612_034339\\prometheus-container-data\\32_node_cpu_user_usage.csv",
+      "size_bytes": 32622,
+      "sha256": "56e36836c02d30bf0f722d7599ab3e4cd231fecfa5eeb812ca330497c2780f38"
+    },
+    {
+      "source": "E:\\0AI\\Online-Boutique\\prometheus-container-data\\33_node_cpu_system_usage.csv",
+      "backup_path": "E:\\0AI\\Online-Boutique\\allBackUp\\backup_20260612_034339\\prometheus-container-data\\33_node_cpu_system_usage.csv",
+      "size_bytes": 32629,
+      "sha256": "2d8c0ab33e841848af84df1e4ff57edc6b4723c86b7d56546da1fa99342ac7eb"
+    },
+    {
+      "source": "E:\\0AI\\Online-Boutique\\prometheus-data\\05_frontend_ready.csv",
+      "backup_path": "E:\\0AI\\Online-Boutique\\allBackUp\\backup_20260612_034339\\prometheus-data\\05_frontend_ready.csv",
+      "size_bytes": 17064,
+      "sha256": "065e8b2a6b58c0a5a0cb23bc0a8df8ea75e9df91afc334fac5cd818856826a17"
+    },
+    {
+      "source": "E:\\0AI\\Online-Boutique\\sr-cnn-dataset\\dataset_meta.json",
+      "backup_path": "E:\\0AI\\Online-Boutique\\allBackUp\\backup_20260612_034339\\sr-cnn-dataset\\dataset_meta.json",
+      "size_bytes": 1123,
+      "sha256": "5a1bdf56307c47d233b0c85fb756e671374013a82f34037905c3895a5f587b97"
+    },
+    {
+      "source": "E:\\0AI\\Online-Boutique\\sr-cnn-dataset\\real_test_windows.csv",
+      "backup_path": "E:\\0AI\\Online-Boutique\\allBackUp\\backup_20260612_034339\\sr-cnn-dataset\\real_test_windows.csv",
+      "size_bytes": 3926,
+      "sha256": "4de4a419e85ddfb4b3cbed87a8f2b5a8b005982bb7141a84f889d7c71a0a4bea"
+    },
+    {
+      "source": "E:\\0AI\\Online-Boutique\\sr-cnn-dataset\\sr_cnn_dataset.npz",
+      "backup_path": "E:\\0AI\\Online-Boutique\\allBackUp\\backup_20260612_034339\\sr-cnn-dataset\\sr_cnn_dataset.npz",
+      "size_bytes": 178372,
+      "sha256": "8fa3ffa73b5243a8a65b579ebcd0d6f90510f2533ff11311e452aeb2445b774f"
+    },
+    {
+      "source": "E:\\0AI\\Online-Boutique\\sr-cnn-output\\01_training_loss.png",
+      "backup_path": "E:\\0AI\\Online-Boutique\\allBackUp\\backup_20260612_034339\\sr-cnn-output\\01_training_loss.png",
+      "size_bytes": 92416,
+      "sha256": "31bb7d7edeb4dda4c18dee3ce419ae4f28d88445f979eac8b5d98556dedb8683"
+    },
+    {
+      "source": "E:\\0AI\\Online-Boutique\\sr-cnn-output\\02_training_f1.png",
+      "backup_path": "E:\\0AI\\Online-Boutique\\allBackUp\\backup_20260612_034339\\sr-cnn-output\\02_training_f1.png",
+      "size_bytes": 97586,
+      "sha256": "a635456acf6a3eabeb40f40d310a1d2efbcd982da9f6ddc91eaac84b1e214bae"
+    },
+    {
+      "source": "E:\\0AI\\Online-Boutique\\sr-cnn-output\\03_real_cpu_with_srcnn_anomalies.png",
+      "backup_path": "E:\\0AI\\Online-Boutique\\allBackUp\\backup_20260612_034339\\sr-cnn-output\\03_real_cpu_with_srcnn_anomalies.png",
+      "size_bytes": 188183,
+      "sha256": "7ffaf5ba52f0667d205cf30ac7ce028ea96e8f011bcda157b6e128750906b721"
+    },
+    {
+      "source": "E:\\0AI\\Online-Boutique\\sr-cnn-output\\04_real_srcnn_probability.png",
+      "backup_path": "E:\\0AI\\Online-Boutique\\allBackUp\\backup_20260612_034339\\sr-cnn-output\\04_real_srcnn_probability.png",
+      "size_bytes": 220555,
+      "sha256": "db251b392bffa8bfa54657606b3f94e314a3d0ef490a189b1b629e79e4dec23e"
+    },
+    {
+      "source": "E:\\0AI\\Online-Boutique\\sr-cnn-output\\evaluation_summary.json",
+      "backup_path": "E:\\0AI\\Online-Boutique\\allBackUp\\backup_20260612_034339\\sr-cnn-output\\evaluation_summary.json",
+      "size_bytes": 684,
+      "sha256": "70c1751b2ba83d7844cde68f2884fcb8dbfc115f0bfd802fefccc7bfc3684aa6"
+    },
+    {
+      "source": "E:\\0AI\\Online-Boutique\\sr-cnn-output\\real_test_predictions.csv",
+      "backup_path": "E:\\0AI\\Online-Boutique\\allBackUp\\backup_20260612_034339\\sr-cnn-output\\real_test_predictions.csv",
+      "size_bytes": 5710,
+      "sha256": "edf9102811c576fbee4994ad9e0117eac8e66a2f581fb13fe768d86f0241dfe2"
+    },
+    {
+      "source": "E:\\0AI\\Online-Boutique\\sr-cnn-output\\sr_cnn_model.pt",
+      "backup_path": "E:\\0AI\\Online-Boutique\\allBackUp\\backup_20260612_034339\\sr-cnn-output\\sr_cnn_model.pt",
+      "size_bytes": 273043,
+      "sha256": "97902903c6e70e16f3c671f9dbcb15f29458ea248d1849cafde8e3bc1e31d98e"
+    },
+    {
+      "source": "E:\\0AI\\Online-Boutique\\sr-cnn-output\\training_history.csv",
+      "backup_path": "E:\\0AI\\Online-Boutique\\allBackUp\\backup_20260612_034339\\sr-cnn-output\\training_history.csv",
+      "size_bytes": 6139,
+      "sha256": "99c69d89b891ad216f4132d474293712fa52a6f868c9a83848dc4f7277817865"
+    },
+    {
+      "source": "E:\\0AI\\Online-Boutique\\export-container-metrics.ps1",
+      "backup_path": "E:\\0AI\\Online-Boutique\\allBackUp\\backup_20260612_034339\\root_files\\export-container-metrics.ps1",
+      "size_bytes": 5484,
+      "sha256": "eaa714ed16e290897fb723645382022088884f218cbed796ea615166c9a4bb57"
+    },
+    {
+      "source": "E:\\0AI\\Online-Boutique\\export-online-boutique-pod-metrics.ps1",
+      "backup_path": "E:\\0AI\\Online-Boutique\\allBackUp\\backup_20260612_034339\\root_files\\export-online-boutique-pod-metrics.ps1",
+      "size_bytes": 3833,
+      "sha256": "23acf51adb7f002db9ec9ce83cc08ebf524767102508c1857e77d5cc855dc549"
+    },
+    {
+      "source": "E:\\0AI\\Online-Boutique\\export-prometheus-data.ps1",
+      "backup_path": "E:\\0AI\\Online-Boutique\\allBackUp\\backup_20260612_034339\\root_files\\export-prometheus-data.ps1",
+      "size_bytes": 2823,
+      "sha256": "d09557055e7bbcd778bbc8391b685176b4f01e07b95b1cd6d63a6edca3f9b1da"
+    },
+    {
+      "source": "E:\\0AI\\Online-Boutique\\cloudbuild.yaml",
+      "backup_path": "E:\\0AI\\Online-Boutique\\allBackUp\\backup_20260612_034339\\root_files\\cloudbuild.yaml",
+      "size_bytes": 1490,
+      "sha256": "911de0775122239f60b0ca09de47d3c544e2be139bd5fdcc0a780429199fdc4e"
+    },
+    {
+      "source": "E:\\0AI\\Online-Boutique\\skaffold.yaml",
+      "backup_path": "E:\\0AI\\Online-Boutique\\allBackUp\\backup_20260612_034339\\root_files\\skaffold.yaml",
+      "size_bytes": 3248,
+      "sha256": "eda2991c43dd37b7a7374695aa70cfea633cfec9ce544e95826cce712dbe72a5"
+    },
+    {
+      "source": "E:\\0AI\\Online-Boutique\\README.md",
+      "backup_path": "E:\\0AI\\Online-Boutique\\allBackUp\\backup_20260612_034339\\root_files\\README.md",
+      "size_bytes": 6069,
+      "sha256": "fa12218b3d7fea703b134c7f38c413303b5f623b200ddca16555125a6a3d5582"
+    }
+  ]
+}

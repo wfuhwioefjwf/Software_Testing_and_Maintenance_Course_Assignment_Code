@@ -1,0 +1,14 @@
+﻿{
+    "prom_url":  "http://127.0.0.1:61279",
+    "namespace":  "online-boutique",
+    "run_type":  "train",
+    "start_unix":  1781206714,
+    "end_unix":  1781213914,
+    "step":  "15s",
+    "lookback_seconds":  7200,
+    "meta_path":  "",
+    "out_dir":  "E:\\0AI\\Online-Boutique\\InterFusion\\online_boutique_data\\prom_train_20260612_053834",
+    "wide_csv":  "E:\\0AI\\Online-Boutique\\InterFusion\\online_boutique_data\\prom_train_20260612_053834\\wide_train.csv",
+    "feature_count":  16,
+    "row_count":  481
+}

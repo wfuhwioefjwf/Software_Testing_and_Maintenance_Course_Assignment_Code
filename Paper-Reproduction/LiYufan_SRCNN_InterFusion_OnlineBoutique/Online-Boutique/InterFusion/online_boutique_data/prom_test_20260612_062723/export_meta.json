@@ -1,0 +1,14 @@
+﻿{
+    "prom_url":  "http://127.0.0.1:59012",
+    "namespace":  "online-boutique",
+    "run_type":  "test",
+    "start_unix":  1781216615,
+    "end_unix":  1781216633,
+    "step":  "15s",
+    "lookback_seconds":  7200,
+    "meta_path":  "E:\\0AI\\Online-Boutique\\InterFusion\\online_boutique_data\\kill_frontend_20260612_062335\\experiment_meta.json",
+    "out_dir":  "E:\\0AI\\Online-Boutique\\InterFusion\\online_boutique_data\\prom_test_20260612_062723",
+    "wide_csv":  "E:\\0AI\\Online-Boutique\\InterFusion\\online_boutique_data\\prom_test_20260612_062723\\wide_test.csv",
+    "feature_count":  16,
+    "row_count":  2
+}

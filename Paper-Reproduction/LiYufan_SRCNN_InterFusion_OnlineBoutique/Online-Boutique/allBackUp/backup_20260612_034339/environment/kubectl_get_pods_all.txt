@@ -1,0 +1,45 @@
+NAMESPACE         NAME                                       READY   STATUS    RESTARTS        AGE
+chaos-testing     chaos-controller-manager-765d8cb6d-kfzqr   1/1     Running   2 (48m ago)     17d
+chaos-testing     chaos-controller-manager-765d8cb6d-kpn6v   1/1     Running   2 (48m ago)     17d
+chaos-testing     chaos-controller-manager-765d8cb6d-x6q8d   1/1     Running   1 (5h29m ago)   17d
+chaos-testing     chaos-daemon-8g7zt                         1/1     Running   1 (5h29m ago)   17d
+chaos-testing     chaos-dashboard-5b77585c6c-cq2d9           1/1     Running   1 (5h29m ago)   17d
+chaos-testing     chaos-dns-server-6bccb5bb76-xr5dg          1/1     Running   1 (5h29m ago)   17d
+kube-system       coredns-7d764666f9-kwhgx                   1/1     Running   6 (5h29m ago)   31d
+kube-system       etcd-minikube                              1/1     Running   6 (5h29m ago)   31d
+kube-system       kube-apiserver-minikube                    1/1     Running   6 (5h29m ago)   31d
+kube-system       kube-controller-manager-minikube           1/1     Running   6 (5h29m ago)   31d
+kube-system       kube-proxy-z64lj                           1/1     Running   6 (5h29m ago)   31d
+kube-system       kube-scheduler-minikube                    1/1     Running   6 (5h29m ago)   31d
+kube-system       storage-provisioner                        1/1     Running   11 (48m ago)    31d
+monitoring        grafana-core-6bfc8657fb-8c2n6              1/1     Running   1 (5h29m ago)   17d
+monitoring        kube-state-metrics-797fcfbcfd-b27dj        1/1     Running   1 (5h29m ago)   17d
+monitoring        node-directory-size-metrics-nhkms          2/2     Running   2 (5h29m ago)   17d
+monitoring        node-exporter-bg7xs                        1/1     Running   1 (5h29m ago)   17d
+monitoring        prometheus-deployment-686cbd765f-82t5k     1/1     Running   1 (5h29m ago)   17d
+online-boutique   adservice-7bb8787db5-x75h9                 1/1     Running   0               5h23m
+online-boutique   cartservice-dc9f4fb6d-t9hpn                1/1     Running   0               5h23m
+online-boutique   checkoutservice-6d7ccbb6cf-jhbpr           1/1     Running   0               5h23m
+online-boutique   currencyservice-7f9f695db5-mb6pd           1/1     Running   1 (13m ago)     5h23m
+online-boutique   emailservice-58dc4788c5-8g5bc              1/1     Running   0               5h23m
+online-boutique   frontend-76c94f7cfb-jkmgk                  1/1     Running   0               5h23m
+online-boutique   loadgenerator-69fdddd69d-5m544             1/1     Running   0               5h23m
+online-boutique   paymentservice-7cff85ccd7-wtdrt            1/1     Running   0               5h23m
+online-boutique   productcatalogservice-54c86d9f79-xc76x     1/1     Running   0               5h23m
+online-boutique   recommendationservice-6d8ddf5d5f-2lxgf     1/1     Running   0               5h23m
+online-boutique   redis-cart-6899b65948-xwzrc                1/1     Running   0               5h23m
+online-boutique   shippingservice-846f8585d7-t9jd4           1/1     Running   0               5h23m
+sock-shop         carts-b6c5c87f9-ncq9l                      1/1     Running   1 (5h29m ago)   17d
+sock-shop         carts-db-6bd47f898c-g68hq                  1/1     Running   1 (5h29m ago)   17d
+sock-shop         catalogue-744d46f784-4bqjl                 1/1     Running   1 (5h29m ago)   17d
+sock-shop         catalogue-db-6d4c747cc6-6jxjl              1/1     Running   1 (5h29m ago)   17d
+sock-shop         front-end-87ff7b849-nckrv                  1/1     Running   1 (5h29m ago)   17d
+sock-shop         orders-6cfcf6794c-qsfg7                    1/1     Running   1 (5h29m ago)   17d
+sock-shop         orders-db-57b97f49c-9nnwc                  1/1     Running   1 (5h29m ago)   17d
+sock-shop         payment-7588d7df-ptvkl                     1/1     Running   1 (5h29m ago)   17d
+sock-shop         queue-master-f75b7664f-c6jmg               1/1     Running   1 (5h29m ago)   17d
+sock-shop         rabbitmq-fcb976dd-mxgs9                    2/2     Running   2 (5h29m ago)   17d
+sock-shop         session-db-5cc78648ff-48jlr                1/1     Running   1 (5h29m ago)   17d
+sock-shop         shipping-6ddcd77687-wtnmg                  1/1     Running   1 (5h29m ago)   17d
+sock-shop         user-9c64594b7-z8pbv                       1/1     Running   1 (5h29m ago)   17d
+sock-shop         user-db-5b8fd7455-wsxxl                    1/1     Running   1 (5h29m ago)   17d

@@ -1,0 +1,16 @@
+frontend_cpu
+frontend_memory
+productcatalogservice_cpu
+productcatalogservice_memory
+cartservice_cpu
+cartservice_memory
+checkoutservice_cpu
+checkoutservice_memory
+redis_cart_cpu
+redis_cart_memory
+paymentservice_cpu
+paymentservice_memory
+currencyservice_cpu
+currencyservice_memory
+shippingservice_cpu
+shippingservice_memory

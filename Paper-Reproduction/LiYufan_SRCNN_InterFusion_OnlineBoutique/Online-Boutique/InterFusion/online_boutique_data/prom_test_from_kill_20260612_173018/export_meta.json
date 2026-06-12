@@ -1,0 +1,18 @@
+﻿{
+    "prom_url":  "http://127.0.0.1:59012",
+    "namespace":  "online-boutique",
+    "kill_meta_path":  ".\\online_boutique_data\\kill_cartservice_20260612_083139\\experiment_meta.json",
+    "start_unix":  1781221899,
+    "kill_unix":  1781224299,
+    "end_unix":  1781226099,
+    "label_start_unix":  1781224299,
+    "label_end_unix":  1781225199,
+    "step":  "15s",
+    "pre_seconds":  2400,
+    "post_seconds":  1800,
+    "label_after_kill_seconds":  900,
+    "out_dir":  "E:\\0AI\\Online-Boutique\\InterFusion\\online_boutique_data\\prom_test_from_kill_20260612_173018",
+    "wide_csv":  "E:\\0AI\\Online-Boutique\\InterFusion\\online_boutique_data\\prom_test_from_kill_20260612_173018\\wide_test.csv",
+    "feature_count":  16,
+    "row_count":  281
+}

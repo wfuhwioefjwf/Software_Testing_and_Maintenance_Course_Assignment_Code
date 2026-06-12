@@ -1,0 +1,20 @@
+﻿{
+    "namespace":  "online-boutique",
+    "target_service":  "frontend",
+    "killed_pod":  "frontend-76c94f7cfb-vhkbz",
+    "recovered_pod":  "frontend-76c94f7cfb-7bwsq",
+    "actually_deleted":  true,
+    "experiment_start_unix":  1781216615,
+    "experiment_end_unix":  1781216633,
+    "kill_unix":  1781216615,
+    "label_start_unix":  1781216615,
+    "label_end_unix":  1781216735,
+    "recover_unix":  1781216633,
+    "experiment_start_local":  "2026-06-12 06:23:35",
+    "experiment_end_local":  "2026-06-12 06:23:53",
+    "kill_local":  "2026-06-12 06:23:35",
+    "label_end_local":  "2026-06-12 06:25:35",
+    "recover_local":  "2026-06-12 06:23:53",
+    "label_after_kill_seconds":  120,
+    "wait_recover_seconds":  300
+}

@@ -1,0 +1,28 @@
+{
+  "threshold": 0.5,
+  "delay_points": 12,
+  "best_val_f1": 0.9533898305084746,
+  "raw_point_metrics": {
+    "TP": 27,
+    "FP": 15,
+    "FN": 12,
+    "TN": 59,
+    "Accuracy": 0.7610619469026548,
+    "Precision": 0.6428571428571429,
+    "Recall": 0.6923076923076923,
+    "F1": 0.6666666666666666
+  },
+  "paper_style_adjusted_metrics": {
+    "TP": 39,
+    "FP": 15,
+    "FN": 0,
+    "TN": 59,
+    "Accuracy": 0.8672566371681416,
+    "Precision": 0.7222222222222222,
+    "Recall": 1.0,
+    "F1": 0.8387096774193548
+  },
+  "total_fault_segments": 8,
+  "detected_fault_segments": 8,
+  "model_path": "E:\\0AI\\Online-Boutique\\sr-cnn-output\\sr_cnn_model.pt"
+}

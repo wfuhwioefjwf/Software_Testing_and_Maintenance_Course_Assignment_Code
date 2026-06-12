@@ -1,0 +1,20 @@
+﻿{
+    "namespace":  "online-boutique",
+    "target_service":  "cartservice",
+    "killed_pod":  "cartservice-dc9f4fb6d-t9hpn",
+    "recovered_pod":  "cartservice-dc9f4fb6d-qgtf9",
+    "actually_deleted":  true,
+    "experiment_start_unix":  1781224299,
+    "experiment_end_unix":  1781224324,
+    "kill_unix":  1781224299,
+    "label_start_unix":  1781224299,
+    "label_end_unix":  1781225199,
+    "recover_unix":  1781224324,
+    "experiment_start_local":  "2026-06-12 08:31:39",
+    "experiment_end_local":  "2026-06-12 08:32:04",
+    "kill_local":  "2026-06-12 08:31:39",
+    "label_end_local":  "2026-06-12 08:46:39",
+    "recover_local":  "2026-06-12 08:32:04",
+    "label_after_kill_seconds":  900,
+    "wait_recover_seconds":  300
+}
