@@ -1,0 +1,168 @@
+{
+  "id": "online-boutique-product-checkout-suite",
+  "version": "2.0",
+  "name": "online-boutique-product-checkout",
+  "url": "http://127.0.0.1:8080",
+  "tests": [
+    {
+      "id": "product-detail-to-checkout-test",
+      "name": "product-detail-to-checkout",
+      "commands": [
+        {
+          "id": "cmd-open-home",
+          "comment": "",
+          "command": "open",
+          "target": "/",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "cmd-open-product",
+          "comment": "",
+          "command": "click",
+          "target": "css=a[href='/product/OLJCESPC7Z']",
+          "targets": [
+            [
+              "css=a[href='/product/OLJCESPC7Z']",
+              "css:finder"
+            ]
+          ],
+          "value": ""
+        },
+        {
+          "id": "cmd-wait-product-page",
+          "comment": "",
+          "command": "waitForElementPresent",
+          "target": "xpath=//button[contains(., 'Add To Cart')]",
+          "targets": [
+            [
+              "xpath=//button[contains(., 'Add To Cart')]",
+              "xpath:text"
+            ]
+          ],
+          "value": "30000"
+        },
+        {
+          "id": "cmd-assert-product-title",
+          "comment": "",
+          "command": "assertText",
+          "target": "xpath=//h2",
+          "targets": [
+            [
+              "xpath=//h2",
+              "xpath:position"
+            ]
+          ],
+          "value": "Sunglasses"
+        },
+        {
+          "id": "cmd-add-to-cart",
+          "comment": "",
+          "command": "click",
+          "target": "xpath=//button[contains(., 'Add To Cart')]",
+          "targets": [
+            [
+              "xpath=//button[contains(., 'Add To Cart')]",
+              "xpath:text"
+            ]
+          ],
+          "value": ""
+        },
+        {
+          "id": "cmd-open-cart",
+          "comment": "",
+          "command": "click",
+          "target": "css=a[href='/cart']",
+          "targets": [
+            [
+              "css=a[href='/cart']",
+              "css:finder"
+            ]
+          ],
+          "value": ""
+        },
+        {
+          "id": "cmd-wait-cart-page",
+          "comment": "",
+          "command": "waitForElementPresent",
+          "target": "xpath=//h3[contains(., 'Cart (1)')]",
+          "targets": [
+            [
+              "xpath=//h3[contains(., 'Cart (1)')]",
+              "xpath:text"
+            ]
+          ],
+          "value": "30000"
+        },
+        {
+          "id": "cmd-assert-cart-title",
+          "comment": "",
+          "command": "assertText",
+          "target": "xpath=//h3[contains(., 'Cart (1)')]",
+          "targets": [
+            [
+              "xpath=//h3[contains(., 'Cart (1)')]",
+              "xpath:text"
+            ]
+          ],
+          "value": "Cart (1)"
+        },
+        {
+          "id": "cmd-place-order",
+          "comment": "",
+          "command": "click",
+          "target": "xpath=//button[contains(., 'Place Order')]",
+          "targets": [
+            [
+              "xpath=//button[contains(., 'Place Order')]",
+              "xpath:text"
+            ]
+          ],
+          "value": ""
+        },
+        {
+          "id": "cmd-wait-checkout-success",
+          "comment": "",
+          "command": "waitForElementPresent",
+          "target": "xpath=//h3[contains(., 'Your order is complete!')]",
+          "targets": [
+            [
+              "xpath=//h3[contains(., 'Your order is complete!')]",
+              "xpath:text"
+            ]
+          ],
+          "value": "30000"
+        },
+        {
+          "id": "cmd-assert-checkout-success",
+          "comment": "",
+          "command": "assertText",
+          "target": "xpath=//h3[contains(., 'Your order is complete!')]",
+          "targets": [
+            [
+              "xpath=//h3[contains(., 'Your order is complete!')]",
+              "xpath:text"
+            ]
+          ],
+          "value": "Your order is complete!"
+        }
+      ]
+    }
+  ],
+  "suites": [
+    {
+      "id": "default-suite",
+      "name": "Default Suite",
+      "persistSession": false,
+      "parallel": false,
+      "timeout": 30000,
+      "tests": [
+        "product-detail-to-checkout-test"
+      ]
+    }
+  ],
+  "urls": [
+    "http://127.0.0.1:8080/"
+  ],
+  "plugins": []
+}

@@ -1,0 +1,14 @@
+apiVersion: chaos-mesh.org/v1alpha1
+kind: PodChaos
+metadata:
+  name: checkoutservice-podkill-once
+  namespace: chaos-testing
+spec:
+  action: pod-kill
+  mode: one
+  duration: "30s"
+  selector:
+    namespaces:
+      - default
+    labelSelectors:
+      app: checkoutservice

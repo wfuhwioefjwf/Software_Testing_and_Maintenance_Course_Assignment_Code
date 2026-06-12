@@ -1,0 +1,16 @@
+{
+  "name": "sefinalwork",
+  "version": "1.0.0",
+  "description": "本 README 根据公开飞书目录中当前可见文件整理，覆盖以下主题目录：",
+  "main": "baidu_search.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "playwright": "^1.60.0"
+  }
+}

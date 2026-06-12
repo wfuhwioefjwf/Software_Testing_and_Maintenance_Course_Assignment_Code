@@ -1,0 +1,17 @@
+apiVersion: chaos-mesh.org/v1alpha1
+kind: StressChaos
+metadata:
+  name: recommendationservice-cpu-stress-formal
+  namespace: chaos-testing
+spec:
+  mode: all
+  selector:
+    namespaces:
+      - default
+    labelSelectors:
+      app: recommendationservice
+  stressors:
+    cpu:
+      workers: 2
+      load: 80
+  duration: "300s"
