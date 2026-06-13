@@ -1,0 +1,194 @@
+[
+  {
+    "scenario": "cs_checkout_r1",
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "auc": 1.0,
+    "n_params": 7992
+  },
+  {
+    "scenario": "cs_checkout_r2",
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "auc": 1.0,
+    "n_params": 7992
+  },
+  {
+    "scenario": "cs_checkout_r3",
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "auc": 1.0,
+    "n_params": 7992
+  },
+  {
+    "scenario": "cs_currency_r1",
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "auc": 1.0,
+    "n_params": 7992
+  },
+  {
+    "scenario": "cs_currency_r2",
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "auc": 1.0,
+    "n_params": 7992
+  },
+  {
+    "scenario": "cs_currency_r3",
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "auc": 1.0,
+    "n_params": 7992
+  },
+  {
+    "scenario": "ms_recommend_r1",
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "auc": 1.0,
+    "n_params": 7992
+  },
+  {
+    "scenario": "ms_recommend_r2",
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "auc": 1.0,
+    "n_params": 7992
+  },
+  {
+    "scenario": "ms_recommend_r3",
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "auc": 1.0,
+    "n_params": 7992
+  },
+  {
+    "scenario": "nd_frontend_r1",
+    "precision": 0.9523809523809523,
+    "recall": 1.0,
+    "f1": 0.975609756097561,
+    "auc": 0.995625,
+    "n_params": 7992
+  },
+  {
+    "scenario": "nd_frontend_r2",
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "auc": 1.0,
+    "n_params": 7992
+  },
+  {
+    "scenario": "nd_frontend_r3",
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "auc": 1.0,
+    "n_params": 7992
+  },
+  {
+    "scenario": "nd_product_r1",
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "auc": 1.0,
+    "n_params": 7992
+  },
+  {
+    "scenario": "nd_product_r2",
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "auc": 1.0,
+    "n_params": 7992
+  },
+  {
+    "scenario": "nd_product_r3",
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "auc": 1.0,
+    "n_params": 7992
+  },
+  {
+    "scenario": "nl_cart_r1",
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "auc": 1.0,
+    "n_params": 7992
+  },
+  {
+    "scenario": "nl_cart_r2",
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "auc": 1.0,
+    "n_params": 7992
+  },
+  {
+    "scenario": "nl_cart_r3",
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "auc": 1.0,
+    "n_params": 7992
+  },
+  {
+    "scenario": "nl_payment_r1",
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "auc": 1.0,
+    "n_params": 7992
+  },
+  {
+    "scenario": "nl_payment_r2",
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "auc": 1.0,
+    "n_params": 7992
+  },
+  {
+    "scenario": "nl_payment_r3",
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "auc": 1.0,
+    "n_params": 7992
+  },
+  {
+    "scenario": "pk_ad_r1",
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "auc": 1.0,
+    "n_params": 7992
+  },
+  {
+    "scenario": "pk_ad_r2",
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "auc": 1.0,
+    "n_params": 7992
+  },
+  {
+    "scenario": "pk_ad_r3",
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "auc": 1.0,
+    "n_params": 7992
+  }
+]
