@@ -1,0 +1,10 @@
+{
+  "dataset": "ChaosBoutiqueShort",
+  "curve_name": "ms_recommend_r2_memory_redis-cart-6899b65948-x7xrp",
+  "metric_name": "memory",
+  "pod": "redis-cart-6899b65948-x7xrp",
+  "fault_type": "ms_recommend_r2",
+  "train_length": 145,
+  "test_length": 20,
+  "anomaly_ratio": 0.0
+}

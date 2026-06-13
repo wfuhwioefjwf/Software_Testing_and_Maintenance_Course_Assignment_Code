@@ -1,0 +1,10 @@
+{
+  "dataset": "ChaosBoutiqueShort",
+  "curve_name": "nl_payment_r1_cpu_redis-cart-6899b65948-x7xrp",
+  "metric_name": "cpu",
+  "pod": "redis-cart-6899b65948-x7xrp",
+  "fault_type": "nl_payment_r1",
+  "train_length": 145,
+  "test_length": 20,
+  "anomaly_ratio": 1.0
+}

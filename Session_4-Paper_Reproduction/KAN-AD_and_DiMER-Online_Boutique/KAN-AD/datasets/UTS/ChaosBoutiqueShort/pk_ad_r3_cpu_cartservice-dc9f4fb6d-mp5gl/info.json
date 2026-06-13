@@ -1,0 +1,10 @@
+{
+  "dataset": "ChaosBoutiqueShort",
+  "curve_name": "pk_ad_r3_cpu_cartservice-dc9f4fb6d-mp5gl",
+  "metric_name": "cpu",
+  "pod": "cartservice-dc9f4fb6d-mp5gl",
+  "fault_type": "pk_ad_r3",
+  "train_length": 145,
+  "test_length": 10,
+  "anomaly_ratio": 1.0
+}

@@ -1,0 +1,10 @@
+{
+  "dataset": "ChaosBoutiqueShort",
+  "curve_name": "pk_ad_r1_memory_emailservice-58dc4788c5-nb9bq",
+  "metric_name": "memory",
+  "pod": "emailservice-58dc4788c5-nb9bq",
+  "fault_type": "pk_ad_r1",
+  "train_length": 145,
+  "test_length": 10,
+  "anomaly_ratio": 0.0
+}
