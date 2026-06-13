@@ -15,7 +15,7 @@
 ## 小组成员分工
 
 - 沈远航：负责微服务开发，开发 Online Boutique 中的 `promotionservice` 优惠券/促销码微服务。
-- 杨嘉仪：负责微服务开发，开发 Online Boutique 中的 `shoppingassistantservice` AI 智能导购微服务和 `aiopsservice` 智能运维开发。
+- 杨嘉仪：负责微服务开发，开发 Online Boutique 中的 `shoppingassistantservice` AI 智能导购微服务和 `aiopsservice` 智能运维。
 - 薛以贤：负责故障注入与监控、微服务系统测试两部分。
 - 王熙康：负责异常数据采集与分析，复现论文为 `CATCH`和`KPIRoot`。
 - 游雨亮：负责异常数据采集与分析，复现论文为 `KAN-AD`和`DiMER`。
