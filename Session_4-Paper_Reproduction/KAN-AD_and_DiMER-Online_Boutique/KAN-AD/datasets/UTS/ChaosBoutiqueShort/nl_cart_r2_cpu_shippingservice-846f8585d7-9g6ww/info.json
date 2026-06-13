@@ -1,0 +1,10 @@
+{
+  "dataset": "ChaosBoutiqueShort",
+  "curve_name": "nl_cart_r2_cpu_shippingservice-846f8585d7-9g6ww",
+  "metric_name": "cpu",
+  "pod": "shippingservice-846f8585d7-9g6ww",
+  "fault_type": "nl_cart_r2",
+  "train_length": 145,
+  "test_length": 20,
+  "anomaly_ratio": 1.0
+}

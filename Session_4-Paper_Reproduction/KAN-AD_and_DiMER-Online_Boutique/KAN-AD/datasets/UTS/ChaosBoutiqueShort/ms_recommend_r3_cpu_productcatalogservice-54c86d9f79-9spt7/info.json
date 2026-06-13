@@ -1,0 +1,10 @@
+{
+  "dataset": "ChaosBoutiqueShort",
+  "curve_name": "ms_recommend_r3_cpu_productcatalogservice-54c86d9f79-9spt7",
+  "metric_name": "cpu",
+  "pod": "productcatalogservice-54c86d9f79-9spt7",
+  "fault_type": "ms_recommend_r3",
+  "train_length": 145,
+  "test_length": 20,
+  "anomaly_ratio": 1.0
+}

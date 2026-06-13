@@ -1,0 +1,10 @@
+{
+  "dataset": "ChaosBoutiqueShort",
+  "curve_name": "nl_payment_r3_memory_paymentservice-7cff85ccd7-7gx4h",
+  "metric_name": "memory",
+  "pod": "paymentservice-7cff85ccd7-7gx4h",
+  "fault_type": "nl_payment_r3",
+  "train_length": 145,
+  "test_length": 20,
+  "anomaly_ratio": 1.0
+}

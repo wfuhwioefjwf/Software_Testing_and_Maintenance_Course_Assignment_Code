@@ -1,0 +1,18 @@
+{
+    "best f1 under pa": {
+        "f1": 0.9936911345734875,
+        "precision": 0.991879705942206,
+        "recall": 0.9973958333333331
+    },
+    "event-based f1 under pa with mode squeeze": {
+        "f1": 0.987847222222222,
+        "precision": 0.9846850198412698,
+        "recall": 0.9973958333333331
+    },
+    "best f1 under 5-delay pa": {
+        "f1": 0.993068710122938,
+        "precision": 0.9909310452279202,
+        "recall": 0.9973958333333331
+    },
+    "point-based auprc pa": 0.991879705942206
+}
