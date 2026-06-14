@@ -1,0 +1,423 @@
+{{ define "assistant" }}
+{{ template "header" . }}
+
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.2.0/github-markdown-light.min.css">
+
+<style>
+  html,
+  body {
+    margin: 0 !important;
+    padding: 0 !important;
+    height: 100vh !important;  /* 整个网页正好等于 1 个屏幕高度 */
+    overflow: hidden !important; /* 禁止浏览器外层出现滚动条 */
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  /* ================= 莫兰迪高级 AI Chat UI ================= */
+  .chat-container {
+    width: 100%;
+    flex: 1;               /* 去掉 height: 100%，改用 flex: 1。让它像海绵一样，自动填满导航栏下面的剩余空间 */
+    min-height: 0; 
+    margin: 0;
+    background: #f8f9fa;
+    border-radius: 0;
+    border: none;
+    box-shadow: none;
+    display: flex;
+    flex-direction: column;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+
+  .chat-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 24px;
+    border-bottom: 1px solid #e0e5ec;
+    background: #fff;
+    border-radius: 12px 12px 0 0;
+  }
+
+  .chat-history {
+    flex: 1;
+    min-height: 0;       /* 强制限制高度，防止内容撑破 Flex 容器 */
+    padding: 24px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background: #f8f9fa;
+  }
+
+  .chat-message {
+    display: flex;
+    max-width: 85%;
+    flex-direction: column;
+  }
+
+  .user-message {
+    align-self: flex-end;
+    align-items: flex-end;
+  }
+
+  .ai-message {
+    align-self: flex-start;
+    align-items: flex-start;
+  }
+
+  .bubble {
+    padding: 14px 20px;
+    border-radius: 12px;
+    font-size: 16px;
+    line-height: 1.6;
+    word-wrap: break-word;
+  }
+
+  /* 修复用户气泡：替换为马卡龙色系 */
+  .user-message .bubble {
+    background: #f8b2a2;
+    color: #333;         /* 因为背景变浅了，文字颜色改用深灰色更清晰 */
+    border-bottom-right-radius: 2px;
+    border: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* 阴影调淡一点，更显高级 */
+    
+    /* 彻底干掉任何点击产生的默认蓝色外框和高亮 */
+    outline: none !important; 
+    -webkit-tap-highlight-color: transparent !important; 
+  }
+
+  /* AI 气泡：纯白底色带阴影 */
+  .ai-message .bubble {
+    background: #ffffff;
+    color: #333;
+    border: 1px solid #e0e5ec;
+    border-bottom-left-radius: 2px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.02);
+  }
+  
+
+  /* 用户上传的图片缩略图 */
+  .user-image-preview {
+    max-width: 200px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    border: 2px solid #6b829c;
+  }
+
+  /* 商品推荐卡片横向滚动区 */
+  .ai-recommended-products {
+    display: flex;
+    gap: 16px;
+    margin-top: 12px;
+    overflow-x: auto;
+    padding-bottom: 10px;
+    width: 100%;
+  }
+
+  .chat-product-card {
+    background: white;
+    border: 1px solid #e0e5ec;
+    border-radius: 8px;
+    min-width: 220px;
+    max-width: 220px;
+    text-decoration: none;
+    color: #333;
+    transition: transform 0.2s, box-shadow 0.2s;
+    overflow: hidden;
+  }
+
+  .chat-product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+  }
+
+  .chat-product-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+
+  .chat-product-info {
+    padding: 14px;
+    text-align: center;
+  }
+
+  .chat-product-info h4 {
+    margin: 0 0 8px 0;
+    font-size: 15px;
+    color: #222;
+  }
+
+  .chat-product-info p {
+    margin: 0;
+    color: #6b829c;
+    font-weight: bold;
+  }
+
+  /* 底部输入区 */
+  .chat-input-area {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    background: white;
+    border-top: 1px solid #e0e5ec;
+    border-radius: 0 0 12px 12px;
+  }
+
+  .chat-input-area input[type="text"] {
+    flex: 1;
+    padding: 14px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+  }
+
+  /* 隐藏原生 file input，用精美的 label 替代 */
+  .file-upload-wrapper {
+    margin-left: 12px;
+  }
+
+  .file-upload-wrapper input[type="file"] {
+    display: none;
+  }
+
+  .file-upload-label {
+    display: inline-block;
+    padding: 14px;
+    background: #e0e5ec;
+    color: #555;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background 0.2s;
+    line-height: 1;
+  }
+
+  .file-upload-label:hover {
+    background: #d1d8e0;
+  }
+
+  .file-upload-label.active {
+    background: #4CAF50;
+    color: white;
+  }
+
+  .chat-input-area button {
+    margin-left: 12px;
+    padding: 14px 30px;
+    background: #6b829c;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+    transition: background 0.2s;
+  }
+
+  .chat-input-area button:hover {
+    background: #5a6e85;
+  }
+
+  .typing {
+    color: #888;
+    font-style: italic;
+  }
+
+  /* 覆盖 markdown-body 的默认背景，融入咱们的莫兰迪气泡 */
+  .markdown-body {
+    background-color: transparent !important;
+    color: inherit !important;
+  }
+
+  .markdown-body p:last-child {
+    margin-bottom: 0;
+  }
+</style>
+
+<div class="chat-container">
+  <div class="chat-header">
+    <a href="/" class="back-btn"><span>&larr;</span> Back</a>
+    <div class="chat-title">Shopping Assistant</div>
+    <div style="width: 100px;"></div>
+  </div>
+
+  <!-- 1. 聊天记录区（独立） -->
+  <div id="chat-history" class="chat-history">
+    <div class="chat-message ai-message">
+      <div class="bubble">Hi! I'm the Online-Boutique Assistant. <br>I can help you with your shopping experience.</div>
+    </div>
+  </div>
+
+  <!-- 2. 输入区（放在聊天记录区外面！） -->
+  <div class="chat-input-area">
+    <input type="text" id="bot-input-text" placeholder="Recommend me items..." onkeypress="handleEnter(event)">
+    <div class="file-upload-wrapper">
+      <label for="bot-input-file" class="file-upload-label" id="file-label" title="Upload an image">📷</label>
+      <input type="file" id="bot-input-file" onchange="getBase64(this)">
+    </div>
+    <button onclick="handleButtonClick()" id="bot-input-button">Send</button>
+  </div>
+</div>
+
+<script>
+  let imageBase64 = null;
+
+  // 处理图片上传转 Base64
+  function getBase64(inputElement) {
+    const file = inputElement.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onloadend = function () {
+      imageBase64 = reader.result;
+      document.getElementById('file-label').classList.add('active'); // 变绿提示上传成功
+    };
+    reader.readAsDataURL(file);
+  }
+
+  // 兼容解析商品 ID（支持新的 JSON Array 和旧的 Regex）
+  function extractIds(data) {
+    // 优先使用新架构的数组
+    if (data.product_ids && Array.isArray(data.product_ids)) {
+      return data.product_ids;
+    }
+    // 降级使用官方原版正则解析
+    const message = data.content || data.message || "";
+    const idPattern = /\[([a-zA-Z0-9-]+)\]/g;
+    const matches = [...message.matchAll(idPattern)];
+    return matches.map(m => m[1]);
+  }
+
+  async function handleButtonClick() {
+    const botinput = document.getElementById("bot-input-text");
+    const botbutton = document.getElementById("bot-input-button");
+    const chatHistory = document.getElementById("chat-history");
+    const message = botinput.value.trim();
+
+    if (!message && !imageBase64) return;
+
+    // 1. 构建用户消息 HTML
+    let userHtml = `<div class="chat-message user-message">`;
+    if (imageBase64) {
+      userHtml += `<img src="${imageBase64}" class="user-image-preview">`;
+    }
+    if (message) {
+      userHtml += `<div class="bubble">${message}</div>`;
+    }
+    userHtml += `</div>`;
+    chatHistory.innerHTML += userHtml;
+
+    // 清理输入
+    botinput.value = "";
+    imageBase64 = null;
+    document.getElementById('file-label').classList.remove('active');
+    document.getElementById('bot-input-file').value = ""; // 清空 file input
+    chatHistory.scrollTop = chatHistory.scrollHeight;
+
+    botbutton.disabled = true;
+    botinput.disabled = true;
+
+    // 渲染 AI 思考中... (占位气泡)
+    const aiMessageId = 'ai-msg-' + Date.now();
+    chatHistory.innerHTML += `
+        <div id="container-${aiMessageId}" class="chat-message ai-message">
+            <div id="${aiMessageId}" class="bubble markdown-body typing">AI is thinking...</div>
+        </div>`;
+    chatHistory.scrollTop = chatHistory.scrollHeight;
+
+    try {
+      // 1. 发起 Fetch 请求
+      const response = await fetch("{{ $.baseUrl }}/bot", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message: message, image: imageBase64 })
+      });
+
+      // 2. 开启流式读取
+      const reader = response.body.getReader();
+      const decoder = new TextDecoder();
+
+      const aiBubble = document.getElementById(aiMessageId);
+      aiBubble.classList.remove('typing');
+      let fullMarkdownText = "";
+      let finalProductIds = [];
+
+      // 3. 循环读取流数据
+      while (true) {
+        const { value, done } = await reader.read();
+        if (done) break;
+
+        const chunkStr = decoder.decode(value, { stream: true });
+        // 🌟 修复：SSE 规范是以双换行符隔开的，这样切分最安全
+        const blocks = chunkStr.split('\n\n'); 
+
+        for (const block of blocks) {
+          if (block.startsWith('data: ')) {
+            try {
+              const data = JSON.parse(block.substring(6));
+
+              // 拼凑大模型返回的碎文字，并实时用 marked 解析渲染
+              if (data.content) {
+                fullMarkdownText += data.content;
+                aiBubble.innerHTML = marked.parse(fullMarkdownText);
+                chatHistory.scrollTop = chatHistory.scrollHeight;
+              }
+
+              // 收集最后发来的商品 IDs
+              if (data.product_ids && data.product_ids.length > 0) {
+                finalProductIds = data.product_ids;
+              }
+            } catch (e) { 
+                // 忽略被截断的不完整 JSON 块
+            }
+          }
+        }
+      }
+
+      // 4. 流读取结束后，如果存在商品，渲染商品卡片
+      if (finalProductIds.length > 0) {
+        let container = document.getElementById(`container-${aiMessageId}`);
+        let prodHtml = `<div class="ai-recommended-products">`;
+        for (const id of finalProductIds) {
+          try {
+            const prodRes = await fetch("{{ $.baseUrl }}/product-meta/" + id);
+            if (prodRes.ok) {
+              const p = await prodRes.json();
+              let priceStr = p.priceUsd ? `${p.priceUsd.currencyCode} ${p.priceUsd.units}` : "";
+              prodHtml += `
+                            <a href="{{ $.baseUrl }}/product/${id}" class="chat-product-card">
+                                <img src="${p.picture}" alt="${p.name}">
+                                <div class="chat-product-info">
+                                    <h4>${p.name}</h4><p>${priceStr}</p>
+                                </div>
+                            </a>`;
+            }
+          } catch (e) { }
+        }
+        prodHtml += `</div>`;
+        container.innerHTML += prodHtml;
+        chatHistory.scrollTop = chatHistory.scrollHeight;
+      }
+
+    } catch (error) {
+      document.getElementById(aiMessageId).innerHTML = "<span style='color:red;'>Network Error.</span>";
+    }
+
+    // 恢复按钮状态
+    botbutton.disabled = false;
+    botinput.disabled = false;
+    botinput.focus();
+  }
+
+  function handleEnter(e) {
+    if (e.key === 'Enter') handleButtonClick();
+  }
+</script>
+
+{{ end }}
