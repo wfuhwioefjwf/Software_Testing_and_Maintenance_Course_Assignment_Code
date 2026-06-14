@@ -26,7 +26,7 @@
 
 ## 仓库结构与使用方法
 
-### Session 1：微服务开发与部署运维
+### Session 1：微服务开发与部署
 
 目录：`Session_1-Microservice_Development/Promotion_Service-Online_Boutique`
 
