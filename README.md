@@ -8,7 +8,7 @@
 
 ## 完成内容说明
 
-根据大作业文档中的“要求+评分标准”，本项目选择了比 SockShop 更复杂的开源微服务系统 **Online Boutique** 进行部署、监控和维护，符合第二档要求；同时在原系统基础上进行了微服务开发，完成了 `promotionservice` 优惠券/促销码微服务，并扩展了 `shoppingassistantservice` AI 智能导购微服务和 `aiopsservice` 智能运维相关功能，符合第三档中“完成一到两个微服务开发”的要求。
+根据大作业文档中的“要求+评分标准”，本项目选择了比 SockShop 更复杂的开源微服务系统 **Online Boutique** 进行部署、监控和维护，符合第二档要求；同时在原系统基础上进行了微服务开发，完成了 `promotionservice` 优惠券/促销码微服务，并扩展了 `shoppingassistantservice` AI 智能导购微服务和 `aiopsservice` 智能运维相关功能，符合第三档中“完成一到两个微服务开发”的要求并满足加分项中“封装智能体自动进行智能运维”的要求。
 
 在测试与维护方面，本项目完成了基于 **Chaos Mesh** 的故障注入与监控实验，由 Prometheus 和 Grafana 采集并展示系统在正常运行和故障场景下的关键指标；完成了基于 **Selenium** 的前端核心购物流程功能测试，以及基于 **JMeter** 的轻负载、中负载和高负载性能测试。
 
