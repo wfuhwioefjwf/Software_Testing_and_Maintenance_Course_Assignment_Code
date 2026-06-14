@@ -26,11 +26,15 @@
 
 ## 仓库结构与使用方法
 
-### Session 1：微服务开发
+### Session 1：微服务开发与部署运维
 
 目录：`Session_1-Microservice_Development/Promotion_Service-Online_Boutique`
 
 该目录保存基于 Online Boutique 的微服务开发代码与说明。当前入口 README 详细说明了新增 `promotionservice` 优惠券/促销码微服务的开发目标、接口设计、服务交互链路、部署配置和验证方式。使用时先阅读该目录下的 `README.md`，再根据其中说明构建镜像、部署 Kubernetes 配置，并通过前端购物车与结算流程验证优惠码功能。
+
+目录：`Session_1-Microservice_Development/AIShoppingAssistant_and_AIOps_Service-Online_Boutique`
+
+该目录保存基于 Online Boutique 的智能化微服务开发代码与相关说明。当前入口 README 详细阐述了新增的 `shoppingassistantservice`智能导购微服务与 `aiopsservice`智能运维的开发目标、大模型交互架构（涵盖多模态 RAG 与 SSE 流式传输）、自动化排障工作流（包含 SOP 注入与人机协同审批）、RBAC 安全隔离配置及其验证方式。使用时请先阅读该目录下的 `README.md`，再根据说明构建相关镜像并部署 Kubernetes 资源。随后，可通过前端交互界面验证智能导购的推荐链路，并结合故障注入工具（如 ChaosMesh）与终端挂载（Attach）操作，验证智能运维的异常检测与受控恢复闭环。
 
 ### Session 2：故障注入与监控
 
