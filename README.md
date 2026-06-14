@@ -59,6 +59,6 @@
 
 - `CATCH_and_KPIRoot-Online_Boutique`：复现 CATCH 多变量时序异常检测与 KPIRoot 根因定位方法。使用流程包括部署 Online Boutique、产生业务流量、通过 Chaos Mesh 注入故障、从 Prometheus 导出指标、转换输入格式，并分别运行 CATCH 与 KPIRoot。
 - `KAN-AD_and_DiMER-Online_Boutique`：复现 KAN-AD 与 DiMER 异常检测方法。使用流程包括启动 minikube、部署 Online Boutique、安装 Chaos Mesh 和 Prometheus、采集短时故障数据、转换数据格式，并运行 KAN-AD 与 DiMER 的实验脚本。
-- `SRCNN_and_InterFusion-Online_Boutique`：保存 Online Boutique 工程和 InterFusion 等复现相关代码。使用时先参考顶层 README 部署 Online Boutique，再进入 `InterFusion` 子目录，按照其 README 安装依赖、准备训练/测试数据并运行训练和预测脚本。
+- `SRCNN_and_InterFusion-Online_Boutique`：复现 SR-CNN 与 InterFusion 两类时间序列异常检测方法，并将其迁移到 Online Boutique 微服务监控数据上进行验证。该目录保留了部分 Online Boutique 原始部署文件，同时新增了 Prometheus 数据导出脚本、ChaosMesh 故障注入配置、SR/SR-CNN 单变量异常检测脚本、InterFusion 多变量异常检测与解释代码，以及对应的数据集和实验输出结果。
 
 各论文复现目录中的 README 已给出更细的依赖安装、数据准备、脚本入口和结果文件位置。实际运行前需要根据本机的 Kubernetes、Prometheus、JMeter、Python 环境和数据保存路径调整参数。
