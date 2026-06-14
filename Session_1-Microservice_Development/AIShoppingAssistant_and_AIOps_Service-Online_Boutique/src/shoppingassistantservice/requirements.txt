@@ -1,0 +1,8 @@
+grpcio
+grpcio-tools
+openai==1.12.0
+faiss-cpu
+sentence-transformers==2.2.2
+setuptools
+huggingface_hub==0.22.2
+httpx==0.27.2

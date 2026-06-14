@@ -1,0 +1,577 @@
+{
+    "products": [
+        {
+            "id": "OLJCESPC7Z",
+            "name": "Sunglasses",
+            "description": "Add a modern touch to your outfits with these sleek aviator sunglasses.",
+            "picture": "/static/img/products/sunglasses.jpg",
+            "priceUsd": {
+                "currencyCode": "USD",
+                "units": 19,
+                "nanos": 990000000
+            },
+            "categories": [
+                "accessories"
+            ]
+        },
+        {
+            "id": "66VCHSJNUP",
+            "name": "Tank Top",
+            "description": "Perfectly cropped cotton tank, with a scooped neckline.",
+            "picture": "/static/img/products/tank-top.jpg",
+            "priceUsd": {
+                "currencyCode": "USD",
+                "units": 18,
+                "nanos": 990000000
+            },
+            "categories": [
+                "clothing",
+                "tops"
+            ]
+        },
+        {
+            "id": "1YMWWN1N4O",
+            "name": "Watch",
+            "description": "This gold-tone stainless steel watch will work with most of your outfits.",
+            "picture": "/static/img/products/watch.jpg",
+            "priceUsd": {
+                "currencyCode": "USD",
+                "units": 109,
+                "nanos": 990000000
+            },
+            "categories": [
+                "accessories"
+            ]
+        },
+        {
+            "id": "L9ECAV7KIM",
+            "name": "Loafers",
+            "description": "A neat addition to your summer wardrobe.",
+            "picture": "/static/img/products/loafers.jpg",
+            "priceUsd": {
+                "currencyCode": "USD",
+                "units": 89,
+                "nanos": 990000000
+            },
+            "categories": [
+                "footwear"
+            ]
+        },
+        {
+            "id": "2ZYFJ3GM2N",
+            "name": "Hairdryer",
+            "description": "This lightweight hairdryer has 3 heat and speed settings. It's perfect for travel.",
+            "picture": "/static/img/products/hairdryer.jpg",
+            "priceUsd": {
+                "currencyCode": "USD",
+                "units": 24,
+                "nanos": 990000000
+            },
+            "categories": [
+                "hair",
+                "beauty"
+            ]
+        },
+        {
+            "id": "0PUK6V6EV0",
+            "name": "Candle Holder",
+            "description": "This small but intricate candle holder is an excellent gift.",
+            "picture": "/static/img/products/candle-holder.jpg",
+            "priceUsd": {
+                "currencyCode": "USD",
+                "units": 18,
+                "nanos": 990000000
+            },
+            "categories": [
+                "decor",
+                "home"
+            ]
+        },
+        {
+            "id": "LS4PSXUNUM",
+            "name": "Salt & Pepper Shakers",
+            "description": "Add some flavor to your kitchen.",
+            "picture": "/static/img/products/salt-and-pepper-shakers.jpg",
+            "priceUsd": {
+                "currencyCode": "USD",
+                "units": 18,
+                "nanos": 490000000
+            },
+            "categories": [
+                "kitchen"
+            ]
+        },
+        {
+            "id": "9SIQT8TOJO",
+            "name": "Bamboo Glass Jar",
+            "description": "This bamboo glass jar can hold 57 oz (1.7 l) and is perfect for any kitchen.",
+            "picture": "/static/img/products/bamboo-glass-jar.jpg",
+            "priceUsd": {
+                "currencyCode": "USD",
+                "units": 5,
+                "nanos": 490000000
+            },
+            "categories": [
+                "kitchen"
+            ]
+        },
+        {
+            "id": "6E92ZMYYFZ",
+            "name": "Mug",
+            "description": "A simple mug with a mustard interior.",
+            "picture": "/static/img/products/mug.jpg",
+            "priceUsd": {
+                "currencyCode": "USD",
+                "units": 8,
+                "nanos": 990000000
+            },
+            "categories": [
+                "kitchen"
+            ]
+        },
+        {
+            "id": "K8X2PLM9Q1",
+            "name": "Wireless Earbuds",
+            "description": "Experience immersive sound with these sleek, noise-canceling wireless earbuds. Features a compact charging case and 24-hour battery life.",
+            "picture": "/static/img/products/wireless-earbuds.jpg",
+            "priceUsd": {
+                "currencyCode": "USD",
+                "units": 79,
+                "nanos": 990000000
+            },
+            "categories": [
+                "electronics",
+                "accessories"
+            ]
+        },
+        {
+            "id": "R3T7YHN4B5",
+            "name": "Smart Thermostat",
+            "description": "Optimize your home's energy consumption with this intuitive smart thermostat. Learns your schedule and can be controlled from your phone.",
+            "picture": "/static/img/products/smart-thermostat.jpg",
+            "priceUsd": {
+                "currencyCode": "USD",
+                "units": 249,
+                "nanos": 0
+            },
+            "categories": [
+                "smart-home"
+            ]
+        },
+        {
+            "id": "V6F1CDE8W2",
+            "name": "Trail Running Shoes",
+            "description": "Conquer any terrain with these lightweight and durable trail running shoes. Features aggressive grip and a breathable mesh upper.",
+            "picture": "/static/img/products/trail-running-shoes.jpg",
+            "priceUsd": {
+                "currencyCode": "USD",
+                "units": 135,
+                "nanos": 490000000
+            },
+            "categories": [
+                "outdoor",
+                "clothing"
+            ]
+        },
+        {
+            "id": "Z9A4SX3D7J",
+            "name": "Merino Wool Hoodie",
+            "description": "Stay warm and comfortable in any weather with this ultra-soft merino wool hoodie. Naturally odor-resistant and temperature regulating.",
+            "picture": "/static/img/products/merino-wool-hoodie.jpg",
+            "priceUsd": {
+                "currencyCode": "USD",
+                "units": 110,
+                "nanos": 0
+            },
+            "categories": [
+                "clothing"
+            ]
+        },
+        {
+            "id": "Q2W5M8P0L4",
+            "name": "Astronaut Figurine",
+            "description": "A highly detailed vinyl figurine of a retro space explorer. The perfect collectible for any space enthusiast or desk decoration.",
+            "picture": "/static/img/products/astronaut-figurine.jpg",
+            "priceUsd": {
+                "currencyCode": "USD",
+                "units": 45,
+                "nanos": 990000000
+            },
+            "categories": [
+                "toys"
+            ]
+        },
+        {
+            "id": "U7J1H5G9F6",
+            "name": "Portable Projector",
+            "description": "Transform any wall into a home cinema with this compact portable projector. Supports 1080p resolution and wireless screen mirroring.",
+            "picture": "/static/img/products/portable-projector.jpg",
+            "priceUsd": {
+                "currencyCode": "USD",
+                "units": 299,
+                "nanos": 490000000
+            },
+            "categories": [
+                "electronics"
+            ]
+        },
+        {
+            "id": "B3N6T2Y8X0",
+            "name": "Yoga Mat",
+            "description": "Find your zen with this extra-thick, non-slip yoga mat. Provides excellent cushioning and stability for any fitness routine.",
+            "picture": "/static/img/products/yoga-mat.jpg",
+            "priceUsd": {
+                "currencyCode": "USD",
+                "units": 35,
+                "nanos": 0
+            },
+            "categories": [
+                "outdoor",
+                "clothing"
+            ]
+        },
+        {
+            "id": "G4E7R1W9Q3",
+            "name": "Stainless Steel Bottle",
+            "description": "Keep your drinks cold for 24 hours or hot for 12 with this double-wall vacuum insulated water bottle. Leak-proof and BPA-free.",
+            "picture": "/static/img/products/stainless-steel-bottle.jpg",
+            "priceUsd": {
+                "currencyCode": "USD",
+                "units": 28,
+                "nanos": 990000000
+            },
+            "categories": [
+                "outdoor"
+            ]
+        },
+        {
+            "id": "L0P2Z7C5A9",
+            "name": "Mechanical Keyboard",
+            "description": "Elevate your typing experience with this RGB backlit mechanical keyboard. Features hot-swappable switches for ultimate customization.",
+            "picture": "/static/img/products/mechanical-keyboard.jpg",
+            "priceUsd": {
+                "currencyCode": "USD",
+                "units": 169,
+                "nanos": 490000000
+            },
+            "categories": [
+                "electronics"
+            ]
+        },
+        {
+            "id": "M9I8U4B1V7",
+            "name": "Desk Lamp",
+            "description": "A minimalist LED desk lamp with adjustable brightness and color temperature. Perfect for reducing eye strain during late work sessions.",
+            "picture": "/static/img/products/desk-lamp.jpg",
+            "priceUsd": {
+                "currencyCode": "USD",
+                "units": 65,
+                "nanos": 0
+            },
+            "categories": [
+                "smart-home"
+            ]
+        },
+        {
+            "id": "D5F3G6H2J1",
+            "name": "Canvas Backpack",
+            "description": "A stylish and functional roll-top canvas backpack with a padded laptop sleeve. Ideal for daily commutes or weekend adventures.",
+            "picture": "/static/img/products/canvas-backpack.jpg",
+            "priceUsd": {
+                "currencyCode": "USD",
+                "units": 89,
+                "nanos": 990000000
+            },
+            "categories": [
+                "clothing",
+                "accessories"
+            ]
+        },
+        {
+            "id": "X4A1C7E9P8",
+            "name": "Cat Robot Kit",
+            "description": "Build and program your own robotic cat with this engaging STEM kit. Teaches basic coding and engineering principles through play.",
+            "picture": "/static/img/products/cat-robot-kit.jpg",
+            "priceUsd": {
+                "currencyCode": "USD",
+                "units": 52,
+                "nanos": 490000000
+            },
+            "categories": [
+                "toys",
+                "electronics"
+            ]
+        },
+        {
+            "id": "S8Q9W5R6N2",
+            "name": "Hiking Poles",
+            "description": "Lightweight carbon fiber trekking poles with cork grips and quick-lock system. Essential for reducing strain on your knees during long hikes.",
+            "picture": "/static/img/products/hiking-poles.jpg",
+            "priceUsd": {
+                "currencyCode": "USD",
+                "units": 120,
+                "nanos": 0
+            },
+            "categories": [
+                "outdoor"
+            ]
+        },
+        {
+            "id": "Y2H6J8K3M7",
+            "name": "Scented Candle Set",
+            "description": "Create a cozy atmosphere with this set of three hand-poured soy candles. Features natural fragrances of vanilla, cedarwood, and fresh linen.",
+            "picture": "/static/img/products/scented-candle-set.jpg",
+            "priceUsd": {
+                "currencyCode": "USD",
+                "units": 42,
+                "nanos": 990000000
+            },
+            "categories": [
+                "smart-home"
+            ]
+        },
+        {
+            "id": "T1R5P9L2B6",
+            "name": "Leather Wallet",
+            "description": "A slim RFID-blocking genuine leather wallet with a minimalist design. Holds up to 8 cards and features a quick-access cash strap.",
+            "picture": "/static/img/products/leather-wallet.jpg",
+            "priceUsd": {
+                "currencyCode": "USD",
+                "units": 55,
+                "nanos": 0
+            },
+            "categories": [
+                "accessories",
+                "clothing"
+            ]
+        },
+        {
+            "id": "N3Z7X1V4D8",
+            "name": "Smart Scale",
+            "description": "Go beyond weight with this smart body composition scale. Tracks BMI, body fat, muscle mass, and syncs seamlessly with your health apps.",
+            "picture": "/static/img/products/smart-scale.jpg",
+            "priceUsd": {
+                "currencyCode": "USD",
+                "units": 59,
+                "nanos": 490000000
+            },
+            "categories": [
+                "smart-home"
+            ]
+        },
+        {
+            "id": "O1D9A5S7G3",
+            "name": "French Press",
+            "description": "Brew the perfect cup of coffee with this classic stainless steel french press. Features a double-wall filter for a smooth, rich brew.",
+            "picture": "/static/img/products/french-press.jpg",
+            "priceUsd": {
+                "currencyCode": "USD",
+                "units": 33,
+                "nanos": 990000000
+            },
+            "categories": [
+                "smart-home"
+            ]
+        },
+        {
+            "id": "E6C0M2W8R4",
+            "name": "Bluetooth Speaker",
+            "description": "A rugged, waterproof Bluetooth speaker that delivers 360-degree room-filling sound. Perfect for the beach, pool, or a camping trip.",
+            "picture": "/static/img/products/bluetooth-speaker.jpg",
+            "priceUsd": {
+                "currencyCode": "USD",
+                "units": 99,
+                "nanos": 0
+            },
+            "categories": [
+                "electronics",
+                "outdoor"
+            ]
+        },
+        {
+            "id": "I7Q3P5L9K2",
+            "name": "Puzzle Box",
+            "description": "Challenge your mind with this beautifully crafted wooden puzzle box. An intricate brain teaser with a secret hidden compartment inside.",
+            "picture": "/static/img/products/puzzle-box.jpg",
+            "priceUsd": {
+                "currencyCode": "USD",
+                "units": 38,
+                "nanos": 490000000
+            },
+            "categories": [
+                "toys"
+            ]
+        },
+        {
+            "id": "J0B4H8F1N6",
+            "name": "Laptop Stand",
+            "description": "Elevate your screen to eye level with this ergonomic aluminum laptop stand. Improves posture and prevents overheating with its ventilated design.",
+            "picture": "/static/img/products/laptop-stand.jpg",
+            "priceUsd": {
+                "currencyCode": "USD",
+                "units": 49,
+                "nanos": 990000000
+            },
+            "categories": [
+                "electronics"
+            ]
+        },
+        {
+            "id": "A7K3LMQ9X2",
+            "name": "Noise-Canceling Headphones",
+            "description": "Immerse yourself in pure audio bliss with these premium over-ear headphones. Active noise cancellation blocks out the world so you can focus on what matters.",
+            "picture": "/static/img/products/noise-canceling-headphones.jpg",
+            "priceUsd": {
+                "currencyCode": "USD",
+                "units": 299,
+                "nanos": 990000000
+            },
+            "categories": [
+                "electronics"
+            ]
+        },
+        {
+            "id": "P4B6T8Y1N5",
+            "name": "Smart Doorbell",
+            "description": "See who's at your door from anywhere with this HD video doorbell. Features motion detection, two-way audio, and night vision for complete peace of mind.",
+            "picture": "/static/img/products/smart-doorbell.jpg",
+            "priceUsd": {
+                "currencyCode": "USD",
+                "units": 179,
+                "nanos": 0
+            },
+            "categories": [
+                "smart-home"
+            ]
+        },
+        {
+            "id": "R2C9F5V7D1",
+            "name": "Camping Tent",
+            "description": "A spacious 4-person camping tent with weather-resistant fabric and easy setup design. Perfect for family adventures in the great outdoors.",
+            "picture": "/static/img/products/camping-tent.jpg",
+            "priceUsd": {
+                "currencyCode": "USD",
+                "units": 259,
+                "nanos": 490000000
+            },
+            "categories": [
+                "outdoor"
+            ]
+        },
+        {
+            "id": "M8N1W3Z6S4",
+            "name": "Silk Scarf",
+            "description": "Elevate any outfit with this luxurious hand-painted silk scarf. Features a vibrant floral pattern and delicate hand-rolled edges.",
+            "picture": "/static/img/products/silk-scarf.jpg",
+            "priceUsd": {
+                "currencyCode": "USD",
+                "units": 68,
+                "nanos": 990000000
+            },
+            "categories": [
+                "clothing",
+                "accessories"
+            ]
+        },
+        {
+            "id": "Q5J9H3L0G7",
+            "name": "Dragon Figurine",
+            "description": "A stunning collectible dragon figurine with intricate scale details and a hand-painted finish. The ultimate centerpiece for any fantasy collection.",
+            "picture": "/static/img/products/dragon-figurine.jpg",
+            "priceUsd": {
+                "currencyCode": "USD",
+                "units": 85,
+                "nanos": 0
+            },
+            "categories": [
+                "toys"
+            ]
+        },
+        {
+            "id": "X1D4U8P2E9",
+            "name": "Tablet Stand",
+            "description": "A versatile and sturdy aluminum tablet stand with adjustable viewing angles. Ideal for video calls, streaming, or digital art creation.",
+            "picture": "/static/img/products/tablet-stand.jpg",
+            "priceUsd": {
+                "currencyCode": "USD",
+                "units": 39,
+                "nanos": 490000000
+            },
+            "categories": [
+                "electronics",
+                "accessories"
+            ]
+        },
+        {
+            "id": "Z6K2B7M1R3",
+            "name": "Indoor Herb Garden",
+            "description": "Grow fresh herbs year-round with this self-watering indoor garden system. Features automatic LED lighting and a sleek modern design for your kitchen.",
+            "picture": "/static/img/products/indoor-herb-garden.jpg",
+            "priceUsd": {
+                "currencyCode": "USD",
+                "units": 149,
+                "nanos": 990000000
+            },
+            "categories": [
+                "smart-home"
+            ]
+        },
+        {
+            "id": "F7V4N9C2Y5",
+            "name": "Denim Jacket",
+            "description": "A timeless classic denim jacket crafted from premium heavyweight cotton. Features a comfortable regular fit and authentic brass button closure.",
+            "picture": "/static/img/products/denim-jacket.jpg",
+            "priceUsd": {
+                "currencyCode": "USD",
+                "units": 95,
+                "nanos": 490000000
+            },
+            "categories": [
+                "clothing"
+            ]
+        },
+        {
+            "id": "H0X6D3J9K1",
+            "name": "Robot Building Kit",
+            "description": "Unleash creativity with this 12-in-1 solar-powered robot building kit. An educational STEM toy that teaches engineering and renewable energy concepts.",
+            "picture": "/static/img/products/robot-building-kit.jpg",
+            "priceUsd": {
+                "currencyCode": "USD",
+                "units": 34,
+                "nanos": 990000000
+            },
+            "categories": [
+                "toys",
+                "electronics"
+            ]
+        },
+        {
+            "id": "W8P1Q6Z4L2",
+            "name": "Wireless Charging Pad",
+            "description": "A sleek, fast wireless charging pad compatible with all Qi-enabled devices. Features a non-slip silicone base and intelligent temperature control.",
+            "picture": "/static/img/products/wireless-charging-pad.jpg",
+            "priceUsd": {
+                "currencyCode": "USD",
+                "units": 25,
+                "nanos": 0
+            },
+            "categories": [
+                "electronics"
+            ]
+        },
+        {
+            "id": "Y1B5G8R3N7",
+            "name": "Smart Light Bulbs",
+            "description": "Transform your home's ambiance with this 4-pack of color-changing smart bulbs. Control millions of colors and schedules via voice or app.",
+            "picture": "/static/img/products/smart-light-bulbs.jpg",
+            "priceUsd": {
+                "currencyCode": "USD",
+                "units": 44,
+                "nanos": 990000000
+            },
+            "categories": [
+                "smart-home"
+            ]
+        }
+    ]
+}
