@@ -938,7 +938,7 @@ message ChatResponse {
 - **依赖说明：** 该服务强依赖外部公网 API（DeepSeek / Qwen）。若出现 gRPC 超时，需优先排查集群节点的外网连通性或 API 提供商的可用性。
 
 
-# AIOps Service 智能运维服务
+# AIOps Service 智能运维
 ## 1. 服务概述
 `aiopsservice` 是针对微服务商城系统设计的一个独立自主的智能运维（AIOps）后台守护微服务。该服务集成了 Prometheus 监控矩阵与 DeepSeek 大语言模型，旨在实现系统异常的**主动感知、自主根因分析、流程审批与受控故障恢复**的闭环运维。
 
