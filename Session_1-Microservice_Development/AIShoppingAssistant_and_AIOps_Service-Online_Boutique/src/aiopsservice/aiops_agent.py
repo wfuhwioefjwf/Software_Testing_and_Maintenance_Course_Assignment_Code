@@ -52,7 +52,7 @@ AVAILABLE_TOOLS = {"execute_promql": execute_promql, "get_service_logs": get_ser
 class AIOpsAgentPro:
     def __init__(self, api_key, base_url):
         self.client = OpenAI(api_key=api_key, base_url=base_url)
-        self.model_name = "deepseek-chat" # 🌟 修复5：纠正 DeepSeek 官方模型名称
+        self.model_name = "deepseek-chat"
         
         self.tools_schema = [
             {
@@ -224,8 +224,8 @@ def scan_all_services_health():
     return anomalies
 
 def main():
-    api_key = "sk-2cecfb91a36c413db3eb4dadf6fc0c9c" 
-    base_url = "https://api.deepseek.com"
+    api_key = os.environ.get("DEEPSEEK_API_KEY", "")
+    base_url = os.environ.get("DEEPSEEK_BASE_URL", "")
 
     agent = AIOpsAgentPro(api_key=api_key, base_url=base_url)
     
