@@ -1,0 +1,51 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: aiopsservice-sa
+  namespace: default
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: aiopsservice-role
+rules:
+- apiGroups: ["", "apps"]
+  resources: ["pods", "pods/log", "deployments"]
+  verbs: ["get", "list", "watch", "patch", "update"] # 允许执行重启操作
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: aiopsservice-binding
+subjects:
+- kind: ServiceAccount
+  name: aiopsservice-sa
+  namespace: default
+roleRef:
+  kind: ClusterRole
+  name: aiopsservice-role
+  apiGroup: rbac.authorization.k8s.io
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: aiopsservice
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: aiopsservice
+  template:
+    metadata:
+      labels:
+        app: aiopsservice
+    spec:
+      serviceAccountName: aiopsservice-sa # 注入上帝权限
+      containers:
+      - name: server
+        image: aiopsservice:latest
+        imagePullPolicy: IfNotPresent
+        # 注意：这里特别加了 tty 和 stdin，允许我们在容器外接管 input()
+        tty: true
+        stdin: true
