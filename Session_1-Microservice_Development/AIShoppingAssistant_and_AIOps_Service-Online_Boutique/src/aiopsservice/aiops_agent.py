@@ -52,7 +52,7 @@ AVAILABLE_TOOLS = {"execute_promql": execute_promql, "get_service_logs": get_ser
 class AIOpsAgentPro:
     def __init__(self, api_key, base_url):
         self.client = OpenAI(api_key=api_key, base_url=base_url)
-        self.model_name = "deepseek-chat"
+        self.model_name = "deepseek-chat" # 🌟 修复5：纠正 DeepSeek 官方模型名称
         
         self.tools_schema = [
             {
@@ -82,18 +82,27 @@ class AIOpsAgentPro:
         ]
 
     def run_diagnosis(self, alert_context, target_service):
-        print("\n" + "🔥" * 40)
-        print(f"[Agent 唤醒] 接收到异常告警: {alert_context}")
+        print("\n" + "🔥" * 60)
+        print(f"🚨 [ReAct 引擎唤醒] 接收到高危告警: {alert_context}")
         
         relevant_sop = KNOWLEDGE_BASE_SOP.get(target_service, "当前服务暂无特定 SOP，请按通用排查逻辑进行。")
         
+        # 🌟 核心调优：在 System Prompt 里给它注入 ReAct 思想钢印！
         system_prompt = f"""
-        你是一个资深的云原生 AIOps 专家。请通过调用工具收集证据，定位根因。
+        你是一个资深的云原生 AIOps 专家。请严格遵循 ReAct (Reasoning and Acting) 范式进行排障。
+        
+        【工作流规范 (ReAct)】：
+        1. Thought (思考): 面对告警或工具返回的结果，先说明你的分析思路。
+        2. Action (行动): 决定调用哪些工具收集证据（如查监控、看日志、或执行重启）。
+        3. Observation (观察): 根据工具返回的结果进行下一轮分析。
+        4. 不断循环上述步骤，直到你得出了确切的根因结论，或者故障已恢复。
+        5. Final Answer (最终结论): 给出最终的诊断报告总结，并停止调用任何工具。
+        
         【相关知识库/SOP 注入】：\n{relevant_sop}
-        【工作流规范】：
-        1. 必须先查日志或看监控指标，严禁不查日志直接采取行动！
-        2. 严格遵守 SOP 指南的限制。
-        3. 给出诊断结果后，再决定是否需要采取恢复动作。
+        
+        【强制红线】：
+        - 严禁未经日志/监控证实直接盲目猜测！
+        - 必须先收集足够的数据，再决定是否调用重启服务工具！
         """
         
         messages = [
@@ -101,51 +110,71 @@ class AIOpsAgentPro:
             {"role": "user", "content": f"请排查此告警：{alert_context}"}
         ]
 
-        for step in range(6):
-            print(f"\n🧠 [Agent 思考中 - 第 {step+1} 步]...")
+        # 🌟 核心改造：放弃固定 for 循环，改为基于大模型意图的动态 While 循环
+        MAX_ITERATIONS = 15  # 设置一个防死循环的安全上限
+        step = 0
+        
+        while step < MAX_ITERATIONS:
+            step += 1
+            print(f"\n🧠 [ReAct 迭代轮次 {step}] 正在深度推理...")
+            
             response = self.client.chat.completions.create(
                 model=self.model_name,
                 messages=messages,
                 tools=self.tools_schema,
-                tool_choice="auto"
+                tool_choice="auto"  # 让大模型自主决定是否需要调用工具
             )
             
             response_message = response.choices[0].message
             messages.append(response_message) 
             
+            # 💡 [Thought 阶段]：打印大模型的内心独白
             if response_message.content:
-                print(f"💡 AI 思考: {response_message.content}")
+                print(f"💡 [Thought 思考]: {response_message.content}")
 
-            if response_message.tool_calls:
-                for tool_call in response_message.tool_calls:
-                    function_name = tool_call.function.name
-                    function_args = json.loads(tool_call.function.arguments)
-                    
-                    if function_name == "restart_pod":
-                        print("\n" + "⚠️" * 20)
-                        print(f"🚨 警告：AI 申请执行高危动作：【重启服务 {function_args.get('service_name')}】！")
-                        approval = input("👉 请管理员审核，是否批准执行？(输入 y 批准，其他拒绝): ")
-                        
-                        if approval.strip().lower() != 'y':
-                            print("⛔ 管理员已拒绝该操作。")
-                            tool_result = "Action REJECTED by human administrator. Please provide alternative suggestions."
-                        else:
-                            print("✅ 管理员已批准。")
-                            tool_result = restart_pod(**function_args)
-                    else:
-                        tool_result = AVAILABLE_TOOLS[function_name](**function_args)
-                    
-                    messages.append({
-                        "tool_call_id": tool_call.id,
-                        "role": "tool",
-                        "name": function_name,
-                        "content": str(tool_result),
-                    })
-            else:
-                print("\n✅ [Agent 最终诊断报告]:")
+            # 🎯 [判定阶段]：如果大模型没有返回任何工具调用，说明它认为排查结束了！
+            if not response_message.tool_calls:
+                print("\n" + "✨" * 20)
+                print("✅ [Final Answer 最终诊断报告]:")
                 print(response_message.content)
-                print("🔥" * 40 + "\n")
-                return 
+                print("🔥" * 60 + "\n")
+                break  # 完美退出 ReAct 循环！
+
+            # 🛠️ [Action 阶段]：大模型决定调用工具
+            for tool_call in response_message.tool_calls:
+                function_name = tool_call.function.name
+                function_args = json.loads(tool_call.function.arguments)
+                
+                print(f"⚙️  [Action 行动]: 决定调用工具 -> {function_name} {function_args}")
+                
+                # --- HITL 人机协同审批逻辑保持不变 ---
+                if function_name == "restart_pod":
+                    print("\n" + "⚠️" * 20)
+                    print(f"🚨 警告：AI 申请执行高危动作：【重启服务 {function_args.get('service_name')}】！")
+                    approval = input("👉 请管理员审核，是否批准执行？(输入 y 批准，其他拒绝): ")
+                    
+                    if approval.strip().lower() != 'y':
+                        print("⛔ 管理员已拒绝该操作。")
+                        tool_result = "Action REJECTED by human administrator."
+                    else:
+                        print("✅ 管理员已批准。")
+                        tool_result = restart_pod(**function_args)
+                else:
+                    # 执行普通查询工具
+                    tool_result = AVAILABLE_TOOLS[function_name](**function_args)
+                
+                # 🔬 [Observation 阶段]：将工具执行结果喂回给大模型
+                messages.append({
+                    "tool_call_id": tool_call.id,
+                    "role": "tool",
+                    "name": function_name,
+                    "content": str(tool_result),
+                })
+                print(f"🔬 [Observation 观察]: 已获取 {function_name} 结果，反馈给大模型大脑...")
+        
+        # 安全退出检测
+        if step >= MAX_ITERATIONS:
+            print("\n⚠️ 达到最大安全思考轮次 (15轮)，强行终止排障任务，防止死循环。\n")
 
 def fetch_prom_data(promql):
     """通用 Prometheus 数据拉取函数"""
