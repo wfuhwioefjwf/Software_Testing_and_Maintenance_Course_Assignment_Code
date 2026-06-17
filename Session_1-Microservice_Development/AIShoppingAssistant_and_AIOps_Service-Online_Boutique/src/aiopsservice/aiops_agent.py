@@ -27,7 +27,6 @@ def execute_promql(query_str):
 def get_service_logs(service_name, tail_lines=30):
     print(f"📄 [工具执行] 抓取真实日志: deploy/{service_name} (最后 {tail_lines} 行)")
     try:
-        # 🌟 已经修正为 online-boutique
         cmd = f"/usr/local/bin/kubectl logs deploy/{service_name} -n default --tail={tail_lines}"
         result = subprocess.run(cmd, shell=True, capture_output=True, text=True, timeout=10)
         if result.returncode == 0:
@@ -52,7 +51,7 @@ AVAILABLE_TOOLS = {"execute_promql": execute_promql, "get_service_logs": get_ser
 class AIOpsAgentPro:
     def __init__(self, api_key, base_url):
         self.client = OpenAI(api_key=api_key, base_url=base_url)
-        self.model_name = "deepseek-chat" # 🌟 修复5：纠正 DeepSeek 官方模型名称
+        self.model_name = "deepseek-v4-pro"
         
         self.tools_schema = [
             {
@@ -87,7 +86,6 @@ class AIOpsAgentPro:
         
         relevant_sop = KNOWLEDGE_BASE_SOP.get(target_service, "当前服务暂无特定 SOP，请按通用排查逻辑进行。")
         
-        # 🌟 核心调优：在 System Prompt 里给它注入 ReAct 思想钢印！
         system_prompt = f"""
         你是一个资深的云原生 AIOps 专家。请严格遵循 ReAct (Reasoning and Acting) 范式进行排障。
         
@@ -109,9 +107,8 @@ class AIOpsAgentPro:
             {"role": "system", "content": system_prompt},
             {"role": "user", "content": f"请排查此告警：{alert_context}"}
         ]
-
-        # 🌟 核心改造：放弃固定 for 循环，改为基于大模型意图的动态 While 循环
-        MAX_ITERATIONS = 15  # 设置一个防死循环的安全上限
+        
+        MAX_ITERATIONS = 15
         step = 0
         
         while step < MAX_ITERATIONS:
@@ -218,7 +215,6 @@ def scan_all_services_health():
 
     anomalies = []
     
-    # 🌟 打印史诗级的多维监控终端面板！
     print(f"\n[{time.strftime('%H:%M:%S')}] 📡 雷达扫描完毕 | 全局网络流入: {global_net_mb:.2f} MB/s")
     print("=" * 75)
     print(f"{'状态':<3} | {'微服务名称':<20} | {'CPU(核)':<7} | {'内存(MB)':<8} | {'重启':<3} | {'诊断结论'}")
