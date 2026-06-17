@@ -15,17 +15,76 @@
 -->
 
 {{ define "recommendations" }}
+
+<style>
+  /* 单个商品卡片容器 */
+  .recommendation-card {
+    margin-bottom: 30px;
+    transition: transform 0.3s ease; /* 卡片上浮的平滑过渡 */
+  }
+  
+  /* 鼠标悬浮时，整个卡片微微上浮，极具交互感 */
+  .recommendation-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .recommendation-img-wrapper {
+    position: relative;
+    display: block;
+  }
+
+  /* 🌟 图片比例强制统一为 1:1 正方形 */
+  .recommendation-img-wrapper img {
+    width: 100%;
+    aspect-ratio: 1 / 1 !important; /* 强制宽高相等（无论屏幕多宽，永远是正方形） */
+    object-fit: cover !important;   /* 配合 cover，自动裁剪多余部分，绝不变形 */
+    border-radius: 20% 20% 0 20% !important; /* 不对称圆角 */
+  }
+
+  /* 悬浮颜色变化遮罩层（默认透明） */
+  .recommendation-img-overlay {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    border-radius: 20% 20% 0 20%;
+    background-color: transparent;
+    transition: background-color 0.3s ease; /* 颜色渐变的动画时间 */
+  }
+
+  /* 鼠标悬浮触发遮罩层颜色渐变 */
+  .recommendation-card:hover .recommendation-img-overlay {
+    background-color: rgba(133, 59, 92, 0.25); 
+  }
+
+  /* 商品标题文字居中 */
+  .recommendation-card h5 {
+    text-align: center !important; /* 水平居中 */
+    margin-top: 15px !important;   /* 增加文字与图片之间的留白，视觉更透气 */
+    font-size: 16px;
+    color: #333;
+    transition: color 0.3s ease;
+  }
+
+  /* 鼠标悬浮时，底下的商品标题也跟着变色呼应 */
+  .recommendation-card:hover h5 {
+    color: #853B5C !important;
+  }
+</style>
+
 <section class="recommendations">
     <div class="container">
       <div class="row">
         <div class="col-xl-10 offset-xl-1">
-          <h2>You May Also Like</h2>
+          <h2 style="text-align: center;">You May Also Like</h2>
           <div class="row">
             {{ range .recommendations }}
-            <div class="col-md-3">
+            <div class="col-md-3 recommendation-card">
               <div>
-                <a href="{{ $.baseUrl }}/product/{{.Id}}">
+                <a href="{{ $.baseUrl }}/product/{{.Id}}" class="recommendation-img-wrapper">
                   <img alt="" src="{{ $.baseUrl }}{{.Picture}}">
+                  <div class="recommendation-img-overlay"></div>
                 </a>
                 <div>
                   <h5>
