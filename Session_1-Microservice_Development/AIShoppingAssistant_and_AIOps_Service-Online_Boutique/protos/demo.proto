@@ -271,7 +271,8 @@ service ShoppingAssistantService {
 
 message ChatRequest {
     string user_message = 1;
-    string image_base64 = 2; // 新增：用于接收前端传来的图片
+    string image_base64 = 2; // 用于接收前端传来的图片
+    string session_id = 3; // 用于多轮对话上下文绑定
 }
 
 message ChatResponse {
