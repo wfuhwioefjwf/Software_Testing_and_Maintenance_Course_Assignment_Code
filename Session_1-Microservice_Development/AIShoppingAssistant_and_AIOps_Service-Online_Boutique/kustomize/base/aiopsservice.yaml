@@ -1,97 +1,56 @@
-# Copyright 2018 Google LLC
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#      http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: checkoutservice
-  labels:
-    app: checkoutservice
-spec:
-  selector:
-    matchLabels:
-      app: checkoutservice
-  template:
-    metadata:
-      labels:
-        app: checkoutservice
-    spec:
-      serviceAccountName: checkoutservice
-      securityContext:
-        fsGroup: 1000
-        runAsGroup: 1000
-        runAsNonRoot: true
-        runAsUser: 1000
-      containers:
-        - name: server
-          securityContext:
-            allowPrivilegeEscalation: false
-            capabilities:
-              drop:
-                - ALL
-            privileged: false
-            readOnlyRootFilesystem: true
-          image: us-central1-docker.pkg.dev/google-samples/microservices-demo/checkoutservice:v0.10.2
-          ports:
-          - containerPort: 5050
-          readinessProbe:
-            grpc:
-              port: 5050
-          livenessProbe:
-            grpc:
-              port: 5050
-          env:
-          - name: PORT
-            value: "5050"
-          - name: PRODUCT_CATALOG_SERVICE_ADDR
-            value: "productcatalogservice:3550"
-          - name: SHIPPING_SERVICE_ADDR
-            value: "shippingservice:50051"
-          - name: PAYMENT_SERVICE_ADDR
-            value: "paymentservice:50051"
-          - name: EMAIL_SERVICE_ADDR
-            value: "emailservice:5000"
-          - name: CURRENCY_SERVICE_ADDR
-            value: "currencyservice:7000"
-          - name: CART_SERVICE_ADDR
-            value: "cartservice:7070"
-          - name: PROMOTION_SERVICE_ADDR
-            value: "http://promotionservice:8080"
-          resources:
-            requests:
-              cpu: 100m
-              memory: 64Mi
-            limits:
-              cpu: 200m
-              memory: 128Mi
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: checkoutservice
-  labels:
-    app: checkoutservice
-spec:
-  type: ClusterIP
-  selector:
-    app: checkoutservice
-  ports:
-  - name: grpc
-    port: 5050
-    targetPort: 5050
----
 apiVersion: v1
 kind: ServiceAccount
 metadata:
-  name: checkoutservice
+  name: aiopsservice-sa
+  namespace: default
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: aiopsservice-role
+rules:
+- apiGroups: ["", "apps"]
+  resources: ["pods", "pods/log", "deployments"]
+  verbs: ["get", "list", "watch", "patch", "update"] # 允许执行重启操作
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: aiopsservice-binding
+subjects:
+- kind: ServiceAccount
+  name: aiopsservice-sa
+  namespace: default
+roleRef:
+  kind: ClusterRole
+  name: aiopsservice-role
+  apiGroup: rbac.authorization.k8s.io
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: aiopsservice
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: aiopsservice
+  template:
+    metadata:
+      labels:
+        app: aiopsservice
+    spec:
+      serviceAccountName: aiopsservice-sa # 注入上帝权限
+      containers:
+      - name: server
+        image: aiopsservice:latest
+        imagePullPolicy: IfNotPresent
+        # 注意：这里特别加了 tty 和 stdin，允许我们在容器外接管 input()
+        tty: true
+        stdin: true
+        env:
+        - name: DEEPSEEK_API_KEY
+          value: "sk-"  # 替换为你的真实 Key
+        - name: DEEPSEEK_BASE_URL
+          value: "https://api.deepseek.com"
