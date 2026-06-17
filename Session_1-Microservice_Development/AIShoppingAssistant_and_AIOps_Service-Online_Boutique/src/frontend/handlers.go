@@ -547,11 +547,15 @@ func (fe *frontendServer) chatBotHandler(w http.ResponseWriter, r *http.Request)
     // 🌟 核心修复：使用 Go 原生 ResponseController 强行穿透中间件，夺取控制权！
     rc := http.NewResponseController(w)
 
+	// 🌟 获取当前匿名用户的 Session ID
+    currentSessionID := sessionID(r)
+
     // 2. 发起 gRPC 流式调用
     stream, err := pb.NewShoppingAssistantServiceClient(fe.shoppingAssistantSvcConn).
         Chat(r.Context(), &pb.ChatRequest{
             UserMessage: reqBody.Message,
             ImageBase64: reqBody.Image,
+			SessionId:   currentSessionID, // 把 Session ID 传给后端
         })
     if err != nil {
         http.Error(w, "Failed to connect to AI backend", http.StatusInternalServerError)
