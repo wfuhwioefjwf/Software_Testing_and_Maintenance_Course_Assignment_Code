@@ -16,6 +16,7 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
 - adservice.yaml
+- aiopsservice.yaml
 - cartservice.yaml
 - checkoutservice.yaml
 - currencyservice.yaml
@@ -25,5 +26,7 @@ resources:
 - paymentservice.yaml
 - productcatalogservice.yaml
 - promotionservice.yaml
+- promotionservice.yaml
 - recommendationservice.yaml
 - shippingservice.yaml
+- shoppingassistantservice.yaml
