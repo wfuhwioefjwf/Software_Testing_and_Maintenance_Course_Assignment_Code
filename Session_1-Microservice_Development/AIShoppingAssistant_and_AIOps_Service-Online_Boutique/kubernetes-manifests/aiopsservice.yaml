@@ -49,3 +49,8 @@ spec:
         # 注意：这里特别加了 tty 和 stdin，允许我们在容器外接管 input()
         tty: true
         stdin: true
+        env:
+        - name: DEEPSEEK_API_KEY
+          value: "sk-"  # 替换为你的真实 Key
+        - name: DEEPSEEK_BASE_URL
+          value: "https://api.deepseek.com"
