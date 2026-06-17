@@ -2,27 +2,31 @@ import grpc
 from concurrent import futures
 import json
 import faiss
-import numpy as np  # 新增：用于处理云端返回的向量数组
+import os
+import numpy as np
 from openai import OpenAI
 import demo_pb2
 import demo_pb2_grpc
 
 # ================= 配置中心 =================
-DEEPSEEK_API_KEY = "sk-2cecfb91a36c413db3eb4dadf6fc0c9c"
-DEEPSEEK_BASE_URL = "https://api.deepseek.com"
-DEEPSEEK_MODEL = "deepseek-chat"
+DEEPSEEK_API_KEY = os.environ.get("DEEPSEEK_API_KEY", "")
+DEEPSEEK_BASE_URL = os.environ.get("DEEPSEEK_BASE_URL", "")
+DEEPSEEK_MODEL = os.environ.get("DEEPSEEK_MODEL", "")
 
-QWEN_API_KEY = "sk-abe3f00477f34b77bc572775460516ed"
-QWEN_BASE_URL = "https://dashscope.aliyuncs.com/compatible-mode/v1"
-QWEN_VISION_MODEL = "qwen3.7-plus"
-QWEN_EMBEDDING_MODEL = "text-embedding-v3" # 新增：阿里百炼通用文本向量模型
+QWEN_API_KEY = os.environ.get("QWEN_API_KEY", "")
+QWEN_BASE_URL = os.environ.get("QWEN_BASE_URL", "")
+QWEN_VISION_MODEL = os.environ.get("QWEN_VISION_MODEL", "")
+QWEN_EMBEDDING_MODEL = os.environ.get("QWEN_EMBEDDING_MODEL", "")
 
 class ShoppingAssistantService(demo_pb2_grpc.ShoppingAssistantServiceServicer):
     def __init__(self):
-        print("🚀 初始化异构多模态 AI 导购大脑 (纯 API 轻量版)...", flush=True)
+        print("🚀 初始化异构多模态 AI 导购大脑...", flush=True)
         self.deepseek_client = OpenAI(api_key=DEEPSEEK_API_KEY, base_url=DEEPSEEK_BASE_URL)
         self.qwen_client = OpenAI(api_key=QWEN_API_KEY, base_url=QWEN_BASE_URL)
         
+        # 基于内存的 Session 对话历史缓存
+        self.chat_history = {}
+
         print("✅ 客户端初始化完成！正在读取本地商品库 products.json...", flush=True)
         with open('products.json', 'r', encoding='utf-8') as f:
             self.products = json.load(f)['products']
@@ -80,6 +84,7 @@ class ShoppingAssistantService(demo_pb2_grpc.ShoppingAssistantServiceServicer):
 
     def Chat(self, request, context):
         print(f"--- 进来了！请求类型: {type(request)} ---", flush=True)
+        session_id = request.session_id or "default_anonymous_session"
         user_msg = request.user_message.strip()
         image_data = request.image_base64
         search_query = user_msg
@@ -87,76 +92,83 @@ class ShoppingAssistantService(demo_pb2_grpc.ShoppingAssistantServiceServicer):
         if image_data:
             image_description = self._analyze_image(image_data)
             search_query = f"{user_msg}。此外，寻找类似这种风格的商品：{image_description}" if user_msg else f"寻找类似这种风格的商品：{image_description}"
-            if not user_msg:
-                user_msg = "请帮我寻找与这张图片风格类似的商品。"
-
-        # ================= 替换这一段 =================
-        # 将用户的搜索词转化为向量
-        query_response = self.qwen_client.embeddings.create(
-            model=QWEN_EMBEDDING_MODEL,
-            input=[search_query]
-        )
-        query_emb_np = np.array([query_response.data[0].embedding], dtype=np.float32)
-
-        # 1. 在 FAISS 中扩大初始检索数量（比如先取出前 5 个候选）
-        distances, indices = self.index.search(query_emb_np, k=5)
         
-        # 💡 打印出来看看距离的具体数值，方便你后续微调阈值
-        print(f"🧐 当前搜索词与前5名商品的距离: {distances[0]}", flush=True)
+        # 只有当用户真的输入了新问题或新图片时，才去向量库检索
+        context_str = ""
+        product_ids = []
+        if search_query:
+            query_response = self.qwen_client.embeddings.create(
+                model=QWEN_EMBEDDING_MODEL, input=[search_query]
+            )
+            query_emb_np = np.array([query_response.data[0].embedding], dtype=np.float32)
+            distances, indices = self.index.search(query_emb_np, k=5)
+            
+            DISTANCE_THRESHOLD = 1.0
+            retrieved_products = []
+            for i, dist in enumerate(distances[0]):
+                if dist <= DISTANCE_THRESHOLD:
+                    idx = indices[0][i]
+                    retrieved_products.append(self.products[idx])
 
-        # 2. 设定距离阈值 (对于 L2 距离，数值越小越相似)
-        # 如果你发现推荐太严格（啥也不出），就把值调大 (例如 1.2, 1.5)
-        # 如果你发现推荐太宽松（乱七八糟的也出），就把值调小 (例如 0.8, 0.9)
-        DISTANCE_THRESHOLD = 1.0
+            product_ids = [p['id'] for p in retrieved_products]
+            context_str = "\n".join([f"- {p['name']}: {p['description']}" for p in retrieved_products])
 
-        retrieved_products = []
-        # 3. 遍历候选商品，只有距离小于等于阈值的才被选中
-        for i, dist in enumerate(distances[0]):
-            if dist <= DISTANCE_THRESHOLD:
-                idx = indices[0][i]
-                retrieved_products.append(self.products[idx])
+        system_prompt = f"""你是一位 Online-Boutique 电商平台的金牌导购员，性格温和、亲密且充满热情。
 
-        product_ids = [p['id'] for p in retrieved_products]
-        # ==============================================
-
-        context_str = "\n".join([f"- {p['name']}: {p['description']}" for p in retrieved_products])
-
-        system_prompt = """你是一位 Online-Boutique 电商平台的金牌导购员，性格温和、亲密且充满热情。
-        请仔细阅读系统为你检索出的【本地商品知识库】信息，为用户提供准确的购物建议，合理擅长使用各种亲切热情、直观的 emoji。
+        【当前检索到的本地商品知识库】：
+        {context_str if context_str else "当前没有进行新的商品检索。"}
 
         【服务规范与红线】：
         1. 严格基于知识库：你只能推荐知识库中明确提供的商品，切勿凭空捏造任何商品名称、功能或价格！
-        2. 缺货处理机制：如果系统匹配到的本地商品为空，或者检索出的商品与用户的需求完全不相关，请温和、诚实地告知用户目前暂无该商品。
-        3. 缺货安抚话术：在告知没有商品后，请务必主动对用户说类似这样的话：“不过请您放心，我已经将您的这个心愿单悄悄记录下来啦，并反馈给我们的采购和商家团队加紧备货，希望能尽快为您奉上！”
-        4. 灵活变通：如果在告知缺货并反馈备货之后，知识库里有稍微相关的替代品，可以顺便热情地问一句“虽然没有那个，但您要不要看看这款相似的宝贝呢？”。
+        2. 请结合上下文聊天记录，理解用户的连贯诉求（如：“换个颜色”、“上面第二款”）。
+        3. 合理擅长使用各种亲切热情、直观的 emoji。
+        4. 语气温和热情，缺货处理机制：如果系统匹配到的本地商品为空，或者检索出的商品与用户的需求完全不相关，请温和、诚实地告知用户目前暂无该商品。
+        5. 缺货安抚话术：在告知没有商品后，请务必主动对用户说类似这样的话：“不过请您放心，我已经将您的这个心愿单悄悄记录下来啦，并反馈给我们的采购和商家团队加紧备货，希望能尽快为您奉上！”
+        6. 灵活变通：如果在告知缺货并反馈备货之后，知识库里有稍微相关的替代品，可以顺便热情地问一句“虽然没有那个，但您要不要看看这款相似的宝贝呢？”。
         """
 
-        user_prompt = f"用户的实时诉求是：'{user_msg}'\n\n系统匹配到的本地商品有：\n{context_str}"
+        messages = [{"role": "system", "content": system_prompt}]
+
+        # 滑动窗口机制：拉取该 Session 最近 5 轮的对话历史 (10 条消息)
+        if session_id not in self.chat_history:
+            self.chat_history[session_id] = []
+        
+        recent_history = self.chat_history[session_id][-10:]
+        messages.extend(recent_history)
+
+        # 加入本次用户的新提问
+        display_query = search_query if search_query else "你好"
+        messages.append({"role": "user", "content": display_query})
 
         try:
             response = self.deepseek_client.chat.completions.create(
                 model=DEEPSEEK_MODEL,
-                messages=[
-                    {"role": "system", "content": system_prompt},
-                    {"role": "user", "content": user_prompt}
-                ],
+                messages=messages,
                 temperature=0.7,
                 extra_body={"thinking": {"type": "disabled"}}, 
                 stream=True
             )
             
+            # 开启流式输出，并同时收集完整的 AI 回复
+            full_ai_reply = ""
             for chunk in response:
                 if chunk.choices and len(chunk.choices) > 0:
                     content = chunk.choices[0].delta.content
                     if content:
+                        full_ai_reply += content
                         yield demo_pb2.ChatResponse(ai_reply=content, product_ids=[])
-                    
+            
+            # 流式响应结束后，将这一轮的对话双双压入历史记忆中
+            self.chat_history[session_id].append({"role": "user", "content": display_query})
+            self.chat_history[session_id].append({"role": "assistant", "content": full_ai_reply})
+            
+            # 最后返回关联的商品卡片 ID
             if product_ids:
                 yield demo_pb2.ChatResponse(ai_reply="", product_ids=product_ids)
                 
         except Exception as e:
             print(f"❌ DeepSeek 生成失败: {e}", flush=True)
-            yield demo_pb2.ChatResponse(ai_reply="抱歉，我的大脑暂时开小差了。", product_ids=[])
+            yield demo_pb2.ChatResponse(ai_reply="抱歉，模型的大脑暂时开小差了。", product_ids=[])
 
 def serve():
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
