@@ -19,19 +19,19 @@
 ```text
 Browser (用户终端)
   │
-  ├─ [HTTP POST /bot (JSON)] 
+  ├─ HTTP POST /bot (JSON) 
   │
 Frontend (Go 网关)
   │
-  ├─ [gRPC Unary-Stream] 
+  ├─ gRPC Unary-Stream 
   │
 ShoppingAssistantService (Python 智能导购服务)
   │
-  ├─ [HTTP API] ──> Qwen API (文本向量化 & 图片特征提取)
+  ├─ HTTP API ──> Qwen API (文本向量化 & 图片特征提取)
   │
-  ├─ [Local] ─────> FAISS Vector Index (商品相似度检索)
+  ├─ Local ─────> FAISS Vector Index (商品相似度检索)
   │
-  └─ [HTTP API (Stream)] ──> DeepSeek API (大语言模型推理)
+  └─ HTTP API (Stream) ──> DeepSeek API (大语言模型推理)
 ```
 
 ## 4. 接口定义
@@ -65,7 +65,7 @@ message ChatResponse {
 | `DEEPSEEK_API_KEY`  | DeepSeek 语言模型 API Key | `sk-...`                             |
 | `DEEPSEEK_BASE_URL` | DeepSeek API 地址         | `https://api.deepseek.com`           |
 | `QWEN_API_KEY`      | 阿里云百炼 (Qwen) API Key | `sk-...`                             |
-| `QWEN_BASE_URL`     | 阿里云百炼 API 地址       | `https://dashscope.aliyuncs.com/...` |
+| `QWEN_BASE_URL`     | 阿里云百炼 API 地址       | `https://dashscope.aliyuncs.com/compatible-mode/v1` |
 
 ## 6. 构建与部署
 
